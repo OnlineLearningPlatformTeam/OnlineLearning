@@ -1,13 +1,202 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>onlinelearning</title>
-  </head>
-  <body>
-    <div class="bg-blue-500 text-white p-4 text-6xl">Hello, Vite!</div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>onlinelearning</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <script src="https://kit.fontawesome.com/a39746915c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="flex justify-between items-center px-12 py-4 bg-white">
+    <div>
+      <h1 class="text-xl text-blue-600 font-bold">OLP</h1>
+    </div>
+    <nav>
+      <ul class="flex gap-8 font-semibold">
+        <li><a href="#" class="hover:text-blue-500 bg-blue-100 text-blue-00 px-3 py-1.5 rounded-lg">Home</a></li>
+        <li><a href="#" class="hover:text-blue-500">About</a></li>
+        <li><a href="#" class="hover:text-blue-500">Courses</a></li>
+        <li><a href="#" class="hover:text-blue-500">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="flex gap-2 items-center justify-end">
+      <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+        <i class="bi bi-search text-black text-xs"></i>
+      </button>
+      <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+        <i class="bi bi-bell text-black text-xs"></i>
+      </button>
+      <div class="flex justify-center">
+        <button class="bg-blue-500 text-white p-2 font-semibold text-xs rounded-lg hover:bg-blue-700">Explore Courses</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-blue-50 px-4 py-6 md:px-10 lg:px-12">
+    <div class="mx-auto max-w-7xl rounded-2xl bg-[#f1f4ff] p-5 md:p-8 shadow-sm">
+      <div class="grid items-center gap-8 lg:grid-cols-2">
+        <div>
+          <div
+            class="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[10px] font-semibold text-primary shadow-sm">
+            <span class="h-2 w-2 rounded-full bg-primary text-blue-500"></span>
+            NEXT COHORT ENROLLING NOW
+          </div>
+          <h1 class="text-2xl font-bold text-black md:text-5xl">Learn New Skills.</h1>
+          <br />
+          <h1 class="text-2xl font-bold text-blue-600 md:text-5xl">Build Your Future.</h1>
+          <p class="mt-4 max-w-lg text-sm leading-6 text-slate-600">Access high-quality, practical courses crafted for
+            modern students and ambitious career switchers. Learn at your own pace from anywhere in the world.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button
+              class="rounded-lg bg-blue-800 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700 hover:-translate-y-0.5">Explore
+              Courses →</button>
+            <button
+              class="rounded-lg bg-white px-5 py-3 text-sm font-semibold text-black shadow-sm transition hover:bg-slate-100">Contact
+              Us </button>
+          </div>
+          <div class="mt-7 flex items-center gap-3">
+            <div class="flex -space-x-2">
+              <img class="h-8 w-8 rounded-full border-2 border-white object-cover"
+                src="https://i.pinimg.com/736x/57/68/7f/57687f0239ab7c385090dea79f1b7552.jpg" alt="" />
+              <img class="h-8 w-8 rounded-full border-2 border-white object-cover"
+                src="https://i.pinimg.com/736x/d1/de/54/d1de547ec960595a706e1c455bdf676e.jpg" alt="" />
+              <img class="h-8 w-8 rounded-full border-2 border-white object-cover"
+                src="https://i.pinimg.com/736x/64/27/0a/64270afddc02ab6d80ef0ebd59f53c62.jpg" alt="" />
+              <div
+                class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-[9px] font-bold text-primary">
+                +2K
+              </div>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-slate-800">
+                ⭐ 4.9 / 5.0
+              </div>
+              <div class="text-[9px] text-slate-500">
+                Validated learner reviews worldwide
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -left-3 -top-4 z-10 rounded-xl bg-white px-4 py-2 shadow-lg">
+            <div class="flex items-center gap-2">
+              <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-100 text-primary">
+                ⚙
+              </div>
+              <div>
+                <p class="text-[8px] uppercase text-slate-400">Accredited</p>
+                <p class="text-[10px] font-bold text-slate-800">Verified Career Diploma</p>
+              </div>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-white p-3 shadow-lg">
+            <div class="relative overflow-hidden rounded-xl">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+                alt="Student learning" class="h-64 w-full object-cover" />
+              <div
+                class="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/50 px-3 py-1 text-[9px] text-white backdrop-blur-sm">
+                <span class="h-2 w-2 rounded-full bg-green-400"></span>
+                Live Coding Studio
+              </div>
+              <div class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-[8px] text-white">SESSION 3
+                OF 16</div>
+            </div>
+            <div class="mt-3 rounded-xl bg-[#f0f4ff] p-3">
+              <div class="mb-2 flex justify-between">
+                <span class="text-[10px] font-bold text-slate-700">Completed Lesson</span>
+                <span class="text-[9px] font-bold text-primary">50% Completed</span>
+              </div>
+              <div class="h-1.5 overflow-hidden rounded-full bg-blue-100">
+                <div class="h-full w-[50%] rounded-full bg-primary"></div>
+              </div>
+              <p class="mt-2 text-[8px] text-slate-500">Lesson 3: Using Tailwind with color & font-size</p>
+            </div>
+          </div>
+          <div class="absolute -bottom-3 -right-3 rounded-xl bg-white p-2 shadow-lg">
+            <div class="flex items-center gap-2">
+              <div
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white">
+                98%</div>
+              <div>
+                <p class="text-[9px] font-bold text-slate-800">Placement Success</p>
+                <p class="text-[8px] text-slate-500">Hired within 90 days</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 grid grid-cols-2 gap-3 rounded-xl bg-white p-5 shadow-sm md:grid-cols-4">
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-blue-600">
+            5,000+
+          </h2>
+          <p class="text-[10px] font-bold text-black">
+            Active Learners
+          </p>
+          <p class="text-[8px] text-slate-400">Across 68 countries</p>
+        </div>
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-blue-600">120+</h2>
+          <p class="text-[10px] font-bold text-slate-700">
+            Curated Courses</p>
+          <p class="text-[8px] text-slate-400">Updated every month</p>
+        </div>
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-blue-600">76%</h2>
+          <p class="text-[10px] font-bold text-gray-600">Satisfaction Rate</p>
+          <p class="text-[8px] text-slate-400">Real student ratings</p>
+        </div>
+        <div class="text-center">
+          <h2 class="text-3xl font-extrabold text-blue-600">
+            24/7
+          </h2>
+          <p class="text-[10px] font-bold text-gray-700">
+            Mentor Support
+          </p>
+          <p class="text-[8px] text-slate-400">
+            Always by your side
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue-50 px-12 py-4">
+    <div class="flex flex-col gap-2 text-center">
+      <h5 class="text-sm text-blue-700 font-bold">ENGERNEERED FOR MASTERY</h5>
+      <h2 class="text-3xl font-semibold">Why LearnHub is Built for Yoursuccess</h2>
+      <p class="text-gray-600">Our mission is to make learning intuitive, flexible, and career-oriented. No filler, no outdated syllabus <br> -only
+        hands-on capabilities employers are actively hunting for.</p>
+    </div>
+    <div class="grid grid-cols-3 gap-8 mt-8">
+      <div class="border-none p-4 rounded-2xl bg-white text-black">
+        <h2 class="font-semibold text-lg">Intuitive Campus Experience</h2>
+        <p class="text-gray-700">Study on any screen with seamless automatic synchronization. Pick up your lesson on your commute and finish
+          your coding lab at your desktop.</p>
+        <p class="text-blue-800 font-semibold pt-12">Learn about the platform →</p>
+      </div>
+      <div class="border-none p-4 rounded-2xl bg-white text-black">
+        <h2 class="font-semibold text-lg ">Bite-Sized Modular Tracks</h2>
+        <p class="text-gray-700">Ditch 2-hour monologues. Our content is compartmentalized into structured 10-to-15 minute interactive modules
+          paired with immediate retention tests.</p>
+        <p class="text-blue-800 font-semibold pt-12">Explore learning methodology →</p>
+      </div>
+      <div class="border-none p-4 rounded-2xl bg-white text-black">
+        <h2 class="font-semibold text-lg ">Industry Practitioner Reviews </h2>
+        <p class="text-gray-700">Every major assignment receives individual code or portfolio commentary directly from vetted industry seniors
+          working at top tech consultancies.</p>
+        <p class="text-blue-800 font-semibold pt-12">Meet our mentor pool →</p>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
