@@ -10,26 +10,74 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 <body class="bg-blue-50">
-  <nav class="flex justify-between bg-white text-gray-700 p-3 items-center shadow-sm">
-    <div class="flex ml-6 items-center gap-3">
-      <img class="w-10" src="/src/assets/logo.png" alt="">
-      <span class="text-blue-800 font-medium ">OLP</span>
-    </div>
-    <ul class="flex items-center decoration-white gap-10">
-      <li><a href="/home" class=" p-3 rounded-2xl hover:bg-blue-300">Home</a></li>
-      <li><a href="./about.html" class="hover:bg-blue-300 p-3 rounded-2xl ">About</a></li>
-      <li><a href="./courses.html" class="hover:bg-blue-300 p-3 rounded-2xl ">Courses</a></li>
-      <li><a href="./contact.html" class="hover:bg-blue-300 p-3 rounded-2xl ">Contact</a></li>
-    </ul>
-    <ul class="flex items-center gap-5">
-      <li><a href="#search" class="flex items-center hover:bg-blue-300 p-1 rounded-full"><span
-            class="material-symbols-outlined">search</span></a></li>
-      <li><a href="#notifications" class="flex items-center hover:bg-blue-300 p-1 rounded-full"><span
-            class="material-symbols-outlined">notifications</span></a></li>
-      <button class="mr-6 border bg-blue-700 rounded-2xl p-4 text-white  hover:bg-blue-500"><a href="" class=""><span
-            class=""></span>Explore Courses</a></li></button>
-    </ul>
-  </nav>
+  <header class="top-0 z-50 border-b border-slate-200 bg-white fixed w-full">
+    <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-4 py-3 sm:px-6"
+      aria-label="Main navigation">
+      <div class="flex items-center gap-2 md:order-1">
+        <button id="menu-btn" type="button"
+          class="rounded-md px-3 py-2 text-xl hover:bg-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary md:hidden"
+          aria-controls="menu" aria-expanded="false" aria-label="Open menu">
+          <span id="icon-open"><i class="fa-solid fa-bars" aria-hidden="true"></i></span>
+          <span id="icon-close" class="hidden"><i class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+        </button>
+        <a href="#"
+          class="flex items-center gap-2 text-2xl font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary">
+          <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
+            <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
+          </span>
+          <span class="text-xl font-semibold text-blue-700">Learning</span>
+        </a>
+      </div>
+      <div class="flex items-center gap-3 md:order-3">
+        <span
+          class="flex bg-blue-50 hover:bg-blue-100 transition-colors w-10 h-10 rounded-md items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-blue-600"></i>
+        </span>
+        <span
+          class="flex bg-blue-50 hover:bg-blue-100 transition-colors w-10 h-10 rounded-md items-center justify-center cursor-pointer relative">
+          <i class="fa-regular fa-bell text-blue-600"></i>
+          <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+        </span>
+        <a href="#"
+          class="hidden md:inline-block bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary">
+          Explore Courses
+        </a>
+      </div>
+      <ul id="menu"
+        class="order-4 mt-3 hidden w-full flex-col gap-1 overflow-hidden md:order-2 md:mt-0 md:flex md:w-auto md:flex-row md:items-center">
+        <li>
+          <a href="#" aria-current="page"
+            class="flex items-center gap-2 rounded-md bg-soft px-4 py-2 text-sm font-medium text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary">
+            <span class="md:hidden"><i class="fa-solid fa-house" aria-hidden="true"></i></span> Home
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-soft hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary">
+            <span class="md:hidden"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></span> About
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-soft hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary">
+            <span class="md:hidden"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span> Courses
+          </a>
+        </li>
+        <li>
+          <a href="#"
+            class="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-soft hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary">
+            <span class="md:hidden"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span> Contact
+          </a>
+        </li>
+        <li class="mt-2 md:hidden">
+          <a href="#"
+            class="block w-full text-center bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600 transition-colors">
+            Explore Courses
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
   <section>
     <div class="p-10 space-y-6">
       <span
@@ -44,12 +92,16 @@
         </div>
         <ul class="flex items-center gap-2 p-2 bg-white rounded-2xl shadow-sm self-center">
           <li>
-            <a href="#school"class="flex items-center gap-1.5 text-blue-700 bg-blue-100 rounded-xl px-3 py-2 text-sm font-medium h-full"><span class="material-symbols-outlined text-[18px]">school</span>
+            <a href="#school"
+              class="flex items-center gap-1.5 text-blue-700 bg-blue-100 rounded-xl px-3 py-2 text-sm font-medium h-full"><span
+                class="material-symbols-outlined text-[18px]">school</span>
               Self-Paced & Live
             </a>
           </li>
           <li>
-            <a href="#verified" class="flex items-center gap-1.5 text-slate-700 px-3 py-2 text-sm font-medium h-full"><span class="material-symbols-outlined text-[18px]">verified</span>
+            <a href="#verified"
+              class="flex items-center gap-1.5 text-slate-700 px-3 py-2 text-sm font-medium h-full"><span
+                class="material-symbols-outlined text-[18px]">verified</span>
               Verified Certs
             </a>
           </li>
@@ -77,11 +129,424 @@
             <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-slate-100 text-slate-700  hover:bg-blue-300">Marketing</button>
           </div>
           <div class="flex gap-1.5 text-sm text-slate-500 whitespace-nowrap">
-            <span class="material-symbols-outlined text-[18px]">menu_book</span>
-            Showing 6 of 6 courses
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>Showing 6 of 6 courses
           </div>
         </div>
   </section>
+  <section class="p-10 space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      <div
+        class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col justify-between h-full">
+        <div class="flex flex-col flex-1">
+          <div class="relative h-48 overflow-hidden shrink-0">
+            <img src="/src/assets/img-card1.png" alt="Web Development" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">
+              Web Development
+            </span>
+            <span
+              class="absolute bottom-2 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              12 Weeks
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-blue-50 text-slate-500 px-2 py-1 rounded text-xs">Beginner to Intermediate</span>
+                <span class="text-blue-600 text-sm font-semibold flex items-center gap-1">
+                  ★ 4.9 <span class="text-slate-500 font-normal">(1,240)</span>
+                </span>
+              </div>
+              <h2 class="text-xl font-semibold text-slate-800 mb-1 line-clamp-1">Web Development Bootcamp</h2>
+              <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 h-[40px]">
+                Master modern HTML5, CSS3, Flexbox, Grid, and responsive web design with real-world projects.
+              </p>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-600 my-4 pt-2 border-t border-slate-100">
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                60 Hours total
+              </span>
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                  </path>
+                </svg>
+                Certificate
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 pb-4">
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-md text-sm font-medium transition duration-200 flex items-center justify-center gap-1">
+            Start Learning <span class="text-lg">→</span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col justify-between h-full">
+        <div class="flex flex-col flex-1">
+          <div class="relative h-48 overflow-hidden shrink-0">
+            <img src="/src/assets/img-card2.png" alt="UI UX Design" class="w-full h-full object-cover">
+            <span
+              class="absolute top-3 left-3 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">Design</span>
+            <span
+              class="absolute bottom-2 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              10 Weeks
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-blue-50 text-slate-500 px-2 py-1 rounded text-xs">Beginner to Advanced</span>
+                <span class="text-blue-600 text-sm font-semibold flex items-center gap-1">
+                  ★ 4.9 <span class="text-slate-500 font-normal">(1,150)</span>
+                </span>
+              </div>
+              <h2 class="text-xl font-semibold text-slate-800 mb-1 line-clamp-1">UI/UX Design Essentials</h2>
+              <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 h-[40px]">
+                Create student-friendly web prototypes, wireframes, user journeys, and design systems.
+              </p>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-600 my-4 pt-2 border-t border-slate-100">
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                50 Hours total
+              </span>
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                  </path>
+                </svg>
+                Certificate
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 pb-4">
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-md text-sm font-medium transition duration-200 flex items-center justify-center gap-1">
+            Start Learning <span class="text-lg">→</span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col justify-between h-full">
+        <div class="flex flex-col flex-1">
+          <div class="relative h-48 overflow-hidden shrink-0">
+            <img src="/src/assets/img-card3.png" alt="Python Programming" class="w-full h-full object-cover">
+            <span
+              class="absolute top-3 left-3 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">Programming</span>
+            <span
+              class="absolute bottom-2 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              10 Weeks
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-blue-50 text-slate-500 px-2 py-1 rounded text-xs">Beginner</span>
+                <span class="text-blue-600 text-sm font-semibold flex items-center gap-1">
+                  ★ 4.8 <span class="text-slate-500 font-normal">(980)</span>
+                </span>
+              </div>
+              <h2 class="text-xl font-semibold text-slate-800 mb-1 line-clamp-1">Python Programming Masterclass</h2>
+              <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 h-[40px]">
+                Learn Python fundamentals, data structures, scripting, and backend development principles.
+              </p>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-600 my-4 pt-2 border-t border-slate-100">
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                50 Hours total
+              </span>
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                  </path>
+                </svg>
+                Certificate
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 pb-4">
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-md text-sm font-medium transition duration-200 flex items-center justify-center gap-1">
+            Start Learning <span class="text-lg">→</span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col justify-between h-full">
+        <div class="flex flex-col flex-1">
+          <div class="relative h-48 overflow-hidden shrink-0">
+            <img src="/src/assets/img-card4.png" alt="Python Programming" class="w-full h-full object-cover">
+            <span
+              class="absolute top-3 left-3 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">Design</span>
+            <span
+              class="absolute bottom-2 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              8 Weeks
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-blue-50 text-slate-500 px-2 py-1 rounded text-xs">All levels</span>
+                <span class="text-blue-600 text-sm font-semibold flex items-center gap-1">
+                  ★ 4.9 <span class="text-slate-500 font-normal">(850)</span>
+                </span>
+              </div>
+
+              <h2 class="text-xl font-semibold text-slate-800 mb-1 line-clamp-1">Graphic Design & Vector Art</h2>
+
+              <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 h-[40px]">
+                Design eye-catching logos, branding assets, social media graphics, and digital illustrations.
+              </p>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-600 my-4 pt-2 border-t border-slate-100">
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                40 Hours total
+              </span>
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                  </path>
+                </svg>
+                Certificate
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 pb-4">
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-md text-sm font-medium transition duration-200 flex items-center justify-center gap-1">
+            Start Learning <span class="text-lg">→</span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col justify-between h-full">
+        <div class="flex flex-col flex-1">
+          <div class="relative h-48 overflow-hidden shrink-0">
+            <img src="/src/assets/img-card5.png" alt="Python Programming" class="w-full h-full object-cover">
+            <span
+              class="absolute top-3 left-3 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">Language</span>
+            <span
+              class="absolute bottom-2 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              6 Weeks
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-blue-50 text-slate-500 px-2 py-1 rounded text-xs">intermediate</span>
+                <span class="text-blue-600 text-sm font-semibold flex items-center gap-1">
+                  ★ 4.7 <span class="text-slate-500 font-normal">(720)</span>
+                </span>
+              </div>
+              <h2 class="text-xl font-semibold text-slate-800 mb-1 line-clamp-1">English Language & Professional Communication</h2>
+              <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 h-[40px]">Enhance your workplace vocabulary, technical writing, interview skills, and presentation confidence.
+              </p>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-600 my-4 pt-2 border-t border-slate-100">
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                30 Hours total
+              </span>
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                  </path>
+                </svg>
+                Certificate
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 pb-4">
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-md text-sm font-medium transition duration-200 flex items-center justify-center gap-1">
+            Start Learning <span class="text-lg">→</span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col justify-between h-full">
+        <div class="flex flex-col flex-1">
+          <div class="relative h-48 overflow-hidden shrink-0">
+            <img src="/src/assets/img-card6.png" alt="Python Programming" class="w-full h-full object-cover">
+            <span
+              class="absolute top-3 left-3 bg-white text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">Marketing</span>
+            <span
+              class="absolute bottom-2 right-3 bg-black/60 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              8 Weeks
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-1 justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="bg-blue-50 text-slate-500 px-2 py-1 rounded text-xs">Beginner</span>
+                <span class="text-blue-600 text-sm font-semibold flex items-center gap-1">
+                  ★ 4.8 <span class="text-slate-500 font-normal">(610)</span>
+                </span>
+              </div>
+              <h2 class="text-xl font-semibold text-slate-800 mb-1 line-clamp-1">Digital Marketing & Growth Strategy</h2>
+              <p class="text-sm text-slate-500 leading-relaxed line-clamp-2 h-[40px]">Master SEO, content marketing, social media analytics, and conversion funnels.
+              </p>
+            </div>
+            <div class="flex justify-between items-center text-xs text-slate-600 my-4 pt-2 border-t border-slate-100">
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                40 Hours total
+              </span>
+              <span class="flex items-center gap-1">
+                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                  </path>
+                </svg>
+                Certificate
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="px-4 pb-4">
+          <button
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-md text-sm font-medium transition duration-200 flex items-center justify-center gap-1">
+            Start Learning <span class="text-lg">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="p-10 space-y-6">
+    </div>
+  </section>
+  <footer class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6 ">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#" class="inline-flex items-center gap-2.5" aria-label="OLP home">
+            <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
+              <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
+            </span>
+            <span class="text-xl font-semibold text-blue-700">OLP</span>
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
+            Empowering learners worldwide with accessible, high-quality, and flexible education.</p>
+          <ul class="mt-5 flex gap-2">
+            <li><a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-[18px]" aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter text-[18px]" aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github text-[18px]" aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Website"><i class="fa-solid fa-globe text-[18px]" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-list mt-5 flex-row flex sm:flex-col gap-5 sm:gap-1.5">
+            <li><a href="#" class="footer-link">Home</a></li>
+            <li><a href="#" class="footer-link">About Us</a></li>
+            <li><a href="#" class="footer-link">All Courses</a></li>
+            <li><a href="#" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title">Contact Details</h3>
+          <ul class="footer-list mt-5 flex flex-col gap-1.5">
+            <li>
+              <a href="mailto:learner@university.edu" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-[16px] text-blue-500" aria-hidden="true"></i>
+                learner@university.edu
+              </a>
+            </li>
+            <li>
+              <a href="tel:+855963254211" class="footer-link flex items-center gap-2"><i class="fa-solid fa-phone text-[16px] text-blue-500" aria-hidden="true"></i>+855 963 254 211</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <a href="#"><i class="fa-solid fa-location-dot text-[16px] text-blue-500" aria-hidden="true"></i>Phnom Penh, Cambodia</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="mt-12 flex flex-col gap-3 border-t border-slate-100 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between lg:mt-16">
+        <p>&copy; <span id="year">2026</span> Online Learning Platform. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link hover:underline">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://kit.fontawesome.com/a39746915c.js" crossorigin="anonymous"></script>
   <script type="module" src="/src/main.js"></script>
 </body>
 
