@@ -8,8 +8,7 @@
 
   <title>onlinelearning</title>
 
-  <link rel="stylesheet" href="../src/components/css/form.css">
-  <link rel="stylesheet" href="../src/components/css/question.css">
+  <link rel="stylesheet" href="../src/components/css/contact.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -273,18 +272,20 @@
               <span class="hint">Department routing</span>
             </div>
             <div id="subject-field" class="subject-field group relative mt-2 flex items-center">
-                <i class="fa-solid fa-shapes pointer-events-none absolute left-4 top-7.5 z-10 -translate-y-1/2 text-base text-slate-400 transition duration-300 group-hover:text-slate-600 group-focus-within:text-slate-700" aria-hidden="true"></i>
-                <select id="subject" name="subject" required
-                    class="input h-12 w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50 pl-12 pr-11 text-base text-slate-600 outline-none transition duration-300 hover:border-slate-300 hover:bg-white hover:shadow-md hover:shadow-slate-200/60 focus:border-slate-400 focus:bg-white focus:ring-4 focus:ring-slate-200/70 invalid:text-slate-500 sm:text-lg">
-                    <option value="" disabled selected>Select an inquiry area...</option>
-                    <option value="course">Course selection</option>
-                    <option value="enrollment">Enrollment &amp; admissions</option>
-                    <option value="transfer">Academic transfer</option>
-                    <option value="technical">Technical support</option>
-                    <option value="partnership">University partnership</option>
-                    <option value="other">Other</option>
-                </select>
-                <i class="subject-chevron fa-solid fa-chevron-down pointer-events-none absolute right-4 top-7.5 -translate-y-1/2 text-sm text-slate-500" aria-hidden="true"></i>
+              <i class="fa-solid fa-shapes pointer-events-none absolute left-4 top-7.5 z-10 -translate-y-1/2 text-base text-slate-400 transition duration-300 group-hover:text-slate-600 group-focus-within:text-slate-700"
+                aria-hidden="true"></i>
+              <select id="subject" name="subject" required
+                class="input h-12 w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50 pl-12 pr-11 text-base text-slate-600 outline-none transition duration-300 hover:border-slate-300 hover:bg-white hover:shadow-md hover:shadow-slate-200/60 focus:border-slate-400 focus:bg-white focus:ring-4 focus:ring-slate-200/70 invalid:text-slate-500 sm:text-lg">
+                <option value="" disabled selected>Select an inquiry area...</option>
+                <option value="course">Course selection</option>
+                <option value="enrollment">Enrollment &amp; admissions</option>
+                <option value="transfer">Academic transfer</option>
+                <option value="technical">Technical support</option>
+                <option value="partnership">University partnership</option>
+                <option value="other">Other</option>
+              </select>
+              <i class="subject-chevron fa-solid fa-chevron-down pointer-events-none absolute right-4 top-7.5 -translate-y-1/2 text-sm text-slate-500"
+                aria-hidden="true"></i>
             </div>
             <p class="error-msg mt-1 hidden text-xs text-red-600">Please choose an inquiry area.</p>
           </div>
@@ -331,9 +332,138 @@
       </section>
     </div>
   </section>
+  <section class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+    <div class="faq-wrap px-5 py-10 sm:px-10">
 
+      <div class="text-center">
+        <span class="faq-badge">
+          <i class="fa-regular fa-circle-question text-[12px]" aria-hidden="true"></i>
+          Common Questions
+        </span>
+        <h2 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
+        <p class="mt-2 text-sm text-slate-600 sm:text-base">
+          Quick answers to help you navigate registration and platform features immediately.
+        </p>
+      </div>
+
+      <div class="mt-8 space-y-3" id="faqList">
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            How do I access course materials after enrolling?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            Once you enroll, your course materials appear instantly in your student dashboard under
+            "My Courses." You can stream video lessons, download readings, and track your progress
+            from there at any time.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            Are certificates provided upon completion?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            Yes. After you complete all required modules and assessments, a verified digital
+            certificate is generated automatically and can be downloaded or shared directly from
+            your profile.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question" aria-expanded="false">
+            Can I learn on mobile devices?
+            <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            Absolutely. The platform is fully responsive, and there are dedicated iOS and Android
+            apps so you can watch lessons, submit assignments, and track progress on the go.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6 ">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- Brand -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#" class="inline-flex items-center gap-2.5" aria-label="OLP home">
+            <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
+              <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
+            </span>
+            <span class="text-xl font-semibold text-blue-700">Learning</span>
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
+            Empowering learners worldwide with accessible, high-quality, and flexible education.
+          </p>
+          <ul class="mt-5 flex gap-2">
+            <li><a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook text-[18px]"
+                  aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+
+        <!-- link footer -->
+        <div>
+          <h3 class="footer-title font-semibold">Quick Links</h3>
+          <ul class="footer-list mt-5 flex-row flex sm:flex-col gap-5 sm:gap-1.5">
+            <li><a href="#" class="footer-link hover:underline">Home</a></li>
+            <li><a href="#" class="footer-link hover:underline">About Us</a></li>
+            <li><a href="#" class="footer-link hover:underline">All Courses</a></li>
+            <li><a href="#" class="footer-link hover:underline">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- contact -->
+        <div>
+          <h3 class="footer-title font-semibold">Contact Details</h3>
+          <ul class="footer-list mt-5 flex flex-col gap-1.5">
+            <li>
+              <a href="mailto:learner@university.edu" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-[16px] text-gray-500" aria-hidden="true"></i>
+                learner@university.edu
+              </a>
+            </li>
+            <li>
+              <a href="tel:+855963254211" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-phone text-[16px] text-gray-500" aria-hidden="true"></i>
+                +855 963 254 211
+              </a>
+            </li>
+            <li class="flex items-center gap-2">
+              <a href="#"><i class="fa-solid fa-location-dot text-[16px] text-gray-500" aria-hidden="true"></i>
+                Phnom Penh, Cambodia
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-12 flex flex-col gap-3 border-t border-slate-100 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between lg:mt-16">
+        <p>&copy; <span id="year">2026</span> Online Learning Platform. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="footer-link hover:underline">Privacy Policy</a>
+          <a href="#" class="footer-link hover:underline">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
   <script src="https://kit.fontawesome.com/a39746915c.js" crossorigin="anonymous"></script>
-  <script type="module" src="/src/main.js"></script>
+  <script src="../src/components/js/navbar.js"></script>
+  <script type="module" src="../src/main.js"></script>
 </body>
 
 </html>
