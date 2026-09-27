@@ -100,6 +100,74 @@ function onReady(fn) {
   else fn();
 }
 
+/* ── navbar (works with the site's animated menu markup) ─────────── */
+const menuBtn = $('#menu-btn');
+const menu = $('#menu');
+const iconOpen = $('#icon-open');
+const iconClose = $('#icon-close');
+
+function setMenuState(isOpen) {
+  if (!menu || !menuBtn) return;
+  menu.classList.toggle('opacity-0', !isOpen);
+  menu.classList.toggle('opacity-100', isOpen);
+  menu.classList.toggle('pointer-events-none', !isOpen);
+  menu.classList.toggle('pointer-events-auto', isOpen);
+  menu.classList.toggle('-translate-y-2', !isOpen);
+  menu.classList.toggle('translate-y-0', isOpen);
+  menu.classList.toggle('is-open', isOpen);
+  if (iconOpen) {
+    iconOpen.classList.toggle('opacity-0', isOpen);
+    iconOpen.classList.toggle('rotate-90', isOpen);
+    iconOpen.classList.toggle('scale-75', isOpen);
+  }
+  if (iconClose) {
+    iconClose.classList.toggle('opacity-0', !isOpen);
+    iconClose.classList.toggle('rotate-90', !isOpen);
+    iconClose.classList.toggle('scale-75', !isOpen);
+  }
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
+  menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  menuBtn.classList.toggle('active', isOpen);
+}
+
+const menuIsOpen = () =>
+  !!menu && (menu.classList.contains('opacity-100') || menu.classList.contains('is-open'));
+
+if (menuBtn && menu) {
+  /* the panel markup can start hidden with `opacity-0` or with `hidden` */
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+    menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+  }
+
+  menuBtn.addEventListener('click', () => setMenuState(!menuIsOpen()));
+
+  document.addEventListener('click', (event) => {
+    const inside = menu.contains(event.target) || menuBtn.contains(event.target);
+    if (!inside && menuIsOpen()) setMenuState(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuIsOpen()) {
+      setMenuState(false);
+      menuBtn.focus();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      menu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+      menu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      if (iconOpen) iconOpen.classList.remove('opacity-0', 'rotate-90', 'scale-75');
+      if (iconClose) iconClose.classList.add('opacity-0', 'rotate-90', 'scale-75');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.classList.remove('active');
+    } else if (menuBtn.getAttribute('aria-expanded') === 'false') {
+      menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0', 'is-open');
+      menu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+    }
+  });
+}
 
 
 /* ── footer year ─────────────────────────────────────────────────── */
@@ -115,42 +183,4 @@ const page = document.body?.dataset.page;
    on the home page (any element with [data-course-grid]) */
 if (page === 'courses' || page === 'home') import('./components/js/courses.js');
 if (page === 'contact') import('./components/js/contact.js');
-
-const menuBtn = document.getElementById('menu-btn');
-const menu = document.getElementById('menu');
-const iconOpen = document.getElementById('icon-open');
-const iconClose = document.getElementById('icon-close');
-function setMenuState(isOpen) {
-  menu.classList.toggle('hidden', !isOpen);
-  iconOpen.classList.toggle('hidden', isOpen);
-  iconClose.classList.toggle('hidden', !isOpen);
-  menuBtn.setAttribute('aria-expanded', String(isOpen));
-  menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-}
-menuBtn.addEventListener('click', () => {
-  const isOpen = menu.classList.contains('hidden');
-  setMenuState(isOpen);
-});
-document.addEventListener('click', (e) => {
-  const isClickInside = menu.contains(e.target) || menuBtn.contains(e.target);
-  if (!isClickInside && !menu.classList.contains('hidden')) {
-    setMenuState(false);
-  }
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
-    setMenuState(false);
-    menuBtn.focus();
-  }
-});
-window.addEventListener('resize', () => {
-  if (window.innerWidth >= 768) {
-    menu.classList.remove('hidden');
-    iconOpen.classList.remove('hidden');
-    iconClose.classList.add('hidden');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  } else if (!menuBtn.getAttribute('aria-expanded') || menuBtn.getAttribute('aria-expanded') === 'false') {
-    menu.classList.add('hidden');
-  }
-});
 
