@@ -1,13 +1,446 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>onlinelearning</title>
-  </head>
-  <body>
-    <div class="bg-blue-500 text-white p-4 text-6xl">Contact Us</div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>onlinelearning</title>
+
+  <link rel="stylesheet" href="../src/components/css/contact.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- Tailwind now comes from ../src/main.js → src/style.css (one pipeline for every page) -->
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased" data-page="contact">
+  <a class="skip-link" href="#contactForm">Skip to the contact form</a>
+
+  <!-- ══ navbar — identical markup on every page ══ -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6" aria-label="Main navigation">
+      <div class="flex items-center gap-3">
+        <button id="menu-btn" type="button"
+          class="menu-toggle inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-700 transition-all duration-300 ease-out hover:border-brand-500 hover:bg-brand-50 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/20 md:hidden"
+          aria-controls="menu" aria-expanded="false" aria-label="Open menu">
+          <span id="icon-open" class="icon-wrap absolute transition-all duration-300 ease-out"><i
+              class="fa-solid fa-bars" aria-hidden="true"></i></span>
+          <span id="icon-close" class="icon-wrap absolute opacity-0 rotate-90 transition-all duration-300 ease-out"><i
+              class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+        </button>
+
+        <a href="../index.html" class="flex items-center gap-3">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-soft">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+          </span>
+          <span class="text-xl font-bold tracking-tight text-brand-700">Learning</span>
+        </a>
+      </div>
+
+      <ul id="menu"
+        class="absolute left-4 right-4 top-full mt-2 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-3 shadow-soft opacity-0 pointer-events-none -translate-y-2 transition-all duration-300 ease-out md:static md:mt-0 md:flex md:w-auto md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0 md:shadow-none md:opacity-100 md:translate-y-0 md:pointer-events-auto">
+        <li><a href="../index.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">Home</a></li>
+        <li><a href="about.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">About</a></li>
+        <li><a href="courses.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">Courses</a></li>
+        <li><a href="contact.html" aria-current="page"
+            class="nav-link block rounded-xl bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700 md:bg-transparent md:px-3">Contact</a>
+        </li>
+        <li class="pt-1 md:hidden">
+          <a href="courses.html"
+            class="nav-cta inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-soft">
+            Explore Courses
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button type="button"
+          class="h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
+          aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+        <button type="button"
+          class="relative h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
+          aria-label="Notifications">
+          <i class="fa-regular fa-bell" aria-hidden="true"></i>
+          <span class="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-red-500"></span>
+        </button>
+        <a href="courses.html"
+          class="hidden items-center justify-center rounded-xl bg-brand-600 px-3 py-2 text-[11px] font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 sm:px-4 sm:text-xs md:hidden">Explore</a>
+        <a href="courses.html"
+          class="hidden rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 md:inline-flex">Explore</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="page-head">
+    <section class="mt-14">
+      <div class="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-6">
+
+        <span class="badge rounded-full px-2 py-1 shadow-cyan-500/50">
+          <i class="fa-solid fa-headset text-[13px]" aria-hidden="true"></i>
+          Direct Communication
+        </span>
+
+        <h1 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          Get in Touch with <span class="text-blue-700">Learning</span>
+        </h1>
+
+        <p class="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          Have questions about courses, enrollment, or university partnerships? Our academic team is here to assist you.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+      <div class="grid items-start gap-6 lg:grid-cols-12">
+
+        <!-- info + map -->
+        <div class="space-y-6 lg:col-span-5">
+
+          <!-- Academic Inquiries -->
+          <section class="card p-5 sm:p-6" aria-labelledby="inquiries-title">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h2 id="inquiries-title" class="text-xl font-medium text-slate-900 sm:text-2xl">Academic Inquiries</h2>
+              <span class="badge">
+                <span class="size-2 rounded-full bg-blue-600"></span>
+                Admissions Live
+              </span>
+            </div>
+
+            <ul class="mt-5 space-y-4">
+              <li>
+                <a href="mailto:learner@university.edu" class="info-row hover:bg-indigo-100/70">
+                  <span class="info-icon bg-blue-600"><i class="fa-solid fa-envelope text-[20px]"
+                      aria-hidden="true"></i></span>
+                  <span class="min-w-0">
+                    <span class="info-label">Email us</span>
+                    <span class="info-value">learning@university.edu</span>
+                    <span class="info-note">Fast response under 24 academic hours</span>
+                  </span>
+                </a>
+              </li>
+
+              <li>
+                <a href="https://t.me/learningolp" class="info-row hover:bg-indigo-100/70">
+                  <span class="info-icon bg-blue-600"><i class="fa-solid fa-phone text-[20px]"
+                      aria-hidden="true"></i></span>
+                  <span class="min-w-0">
+                    <span class="info-label">Call directly</span>
+                    <span class="info-value">+855 963 254 211</span>
+                    <span class="info-note">Toll-free student advisory helpline</span>
+                  </span>
+                </a>
+              </li>
+
+              <li>
+                <div class="info-row">
+                  <span class="info-icon bg-slate-600"><i class="fa-solid fa-location-dot text-[20px]"
+                      aria-hidden="true"></i></span>
+                  <span class="min-w-0">
+                    <span class="info-label">Global campus</span>
+                    <span class="info-value">Phnom Penh, Cambodia</span>
+                    <span class="info-note">BP 511, Phum Tropeang Chhuk (Borey Sorla) Sangtak, Street 371,
+                      ភ្នំពេញ</span>
+                  </span>
+                </div>
+              </li>
+            </ul>
+
+            <h3 class="mt-6 text-base font-medium text-slate-800">Connect Across Communities</h3>
+            <ul class="mt-3 flex flex-wrap gap-2">
+              <li><a href="#" class="chip"><i class="fa-brands fa-linkedin-in text-[14px]"
+                    aria-hidden="true"></i>LinkedIn</a></li>
+              <li><a href="#" class="chip"><i class="fa-brands fa-twitter text-[14px]"
+                    aria-hidden="true"></i>Twitter</a>
+              </li>
+              <li><a href="#" class="chip"><i class="fa-brands fa-github text-[14px]" aria-hidden="true"></i>GitHub</a>
+              </li>
+              <li><a href="#" class="chip"><i class="fa-brands fa-facebook text-[14px]"
+                    aria-hidden="true"></i>Facebook</a></li>
+            </ul>
+          </section>
+
+          <!-- Campus map -->
+          <section class="card p-4" aria-labelledby="campus-title">
+            <div class="flex flex-wrap items-center justify-between gap-2 px-1">
+              <h2 id="campus-title" class="text-xl font-medium text-slate-900 sm:text-2xl">Campus Learning</h2>
+              <a href="https://www.google.com/maps/search/?api=1&query=Preah+Monivong+Boulevard+Phnom+Penh"
+                target="_blank" rel="noopener"
+                class="inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:underline">
+                <i class="fa-solid fa-location-arrow text-[12px]" aria-hidden="true"></i>
+                Phnom Penh Center
+              </a>
+            </div>
+
+            <div class="relative mt-3 h-48 overflow-hidden rounded-lg bg-slate-200 sm:h-56">
+              <iframe title="Map of Phnom Penh" src="https://www.google.com/maps?q=11.5508551,104.8830826&output=embed"
+                class="h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+
+              <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 from-black/75 via-black/40 to-transparent px-3 pb-2 pt-10">
+                <div class="min-w-0">
+                  <p class="truncate text-base font-semibold leading-tight sm:text-lg">Main Learning Campus</p>
+                  <p class="text-xs">Open for campus visits &amp; workshops</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Preah+Monivong+Boulevard+Phnom+Penh"
+                  target="_blank" rel="noopener"
+                  class="btn-primary pointer-events-auto shrink-0 gap-1 rounded-md px-2.5 py-1 text-xs font-medium">
+                  Get Route
+                  <i class="fa-solid fa-arrow-up-right-from-square text-[11px]" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- message form -->
+        <section class="card p-5 sm:p-8 lg:col-span-7 lg:p-10" aria-labelledby="form-title">
+          <h2 id="form-title" class="text-xl font-medium text-slate-900 sm:text-2xl lg:text-[28px]">Send Us a Direct
+            Message</h2>
+          <p class="mt-1 text-sm text-slate-600">
+            Fill out the form below with your academic or enrollment inquiry and receive a detailed response.
+          </p>
+
+          <form id="contactForm" class="mt-6 space-y-5" novalidate>
+
+            <!-- Full name -->
+            <div>
+              <div class="field-head">
+                <label for="name" class="label">Full Name <span class="text-red-600">*</span></label>
+                <span class="hint">As registered or on ID</span>
+              </div>
+              <div class="relative mt-2">
+                <i class="fa-regular fa-user field-icon text-[16px]" aria-hidden="true"></i>
+                <input id="name" name="name" type="text" required autocomplete="name" placeholder="e.g. Thyda Ang"
+                  class="input h-12 pl-12 pr-4" />
+              </div>
+              <p class="error-msg mt-1 hidden text-xs text-red-600" data-error-for="name">Please enter your full name.
+              </p>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <div class="field-head">
+                <label for="email" class="label">Email Address <span class="text-red-600">*</span></label>
+                <span class="hint">Will be used for follow-up</span>
+              </div>
+              <div class="relative mt-2">
+                <i class="fa-regular fa-envelope field-icon text-[16px]" aria-hidden="true"></i>
+                <input id="email" name="email" type="email" required autocomplete="email"
+                  placeholder="learning@university.edu" class="input h-12 pl-12 pr-4" />
+              </div>
+              <p class="error-msg mt-1 hidden text-xs text-red-600" data-error-for="email">Please enter a valid email
+                address.</p>
+            </div>
+
+            <!-- Subject -->
+            <div>
+              <div class="field-head">
+                <label for="subject" class="label">Subject Category <span class="text-red-600">*</span></label>
+                <span class="hint">Department routing</span>
+              </div>
+              <div id="subject-field" class="subject-field group relative mt-2 flex items-center">
+                <i class="fa-solid fa-shapes pointer-events-none absolute left-4 top-7.5 z-10 -translate-y-1/2 text-base text-slate-400 transition duration-300 group-hover:text-slate-600 group-focus-within:text-slate-700"
+                  aria-hidden="true"></i>
+                <select id="subject" name="subject" required
+                  class="input h-12 w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50 pl-12 pr-11 text-base text-slate-600 outline-none transition duration-300 hover:border-slate-300 hover:bg-white hover:shadow-md hover:shadow-slate-200/60 focus:border-slate-400 focus:bg-white focus:ring-4 focus:ring-slate-200/70 invalid:text-slate-500 sm:text-lg">
+                  <option value="" disabled selected>Select an inquiry area...</option>
+                  <option value="course">Course selection</option>
+                  <option value="enrollment">Enrollment &amp; admissions</option>
+                  <option value="transfer">Academic transfer</option>
+                  <option value="technical">Technical support</option>
+                  <option value="partnership">University partnership</option>
+                  <option value="other">Other</option>
+                </select>
+                <i class="subject-chevron fa-solid fa-chevron-down pointer-events-none absolute right-4 top-7.5 -translate-y-1/2 text-sm text-slate-500"
+                  aria-hidden="true"></i>
+              </div>
+              <p class="error-msg mt-1 hidden text-xs text-red-600" data-error-for="subject">Please choose an inquiry
+                area.</p>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <div class="field-head">
+                <label for="message" class="label">Message <span class="text-red-600">*</span></label>
+                <span class="hint"><span id="charCount">0</span> / 500 characters</span>
+              </div>
+              <textarea id="message" name="message" rows="6" maxlength="500" required
+                placeholder="Provide details about your course selection, academic transfer, or technical question..."
+                class="input mt-2 h-40 resize-none p-4"></textarea>
+              <p class="error-msg mt-1 hidden text-xs text-red-600" data-error-for="message">Please add a short message.
+              </p>
+            </div>
+
+            <!-- Submit -->
+            <div class="flex flex-col-reverse gap-4 pt-2 sm:flex-row sm:items-end sm:justify-between">
+              <p class="text-xs text-slate-800">We respect your privacy. No promotional spam.</p>
+              <button type="submit" id="submitBtn" class="btn-primary h-12 w-full px-6 sm:w-auto">
+                <span id="submitLabel">Send Message</span>
+                <i class="fa-solid fa-paper-plane text-[15px]" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <!-- Success message -->
+            <p id="formStatus" class="hidden rounded-lg bg-green-50 px-4 py-3 text-sm text-green-800" role="status"
+              aria-live="polite"></p>
+          </form>
+
+          <div class="mt-4 flex flex-col gap-4 rounded-xl bg-blue-100 p-5 sm:flex-row sm:items-center">
+            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white text-blue-700 shadow-sm">
+              <i class="fa-solid fa-graduation-cap text-[18px]" aria-hidden="true"></i>
+            </span>
+            <div class="min-w-0 flex-1">
+              <h3 class="text-lg font-semibold text-slate-900">Schedule a Virtual Consultation?</h3>
+              <p class="text-xs text-slate-700">Book a 1-on-1 session with our curriculum advisors online.</p>
+            </div>
+            <a href="https://t.me/learningolp"
+              class="inline-flex shrink-0 items-center justify-center rounded-md bg-white px-4 py-2 text-xs font-semibold text-blue-700 shadow-sm hover:bg-blue-50">
+              Book Call
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <div class="faq-wrap px-5 py-10 sm:px-10">
+
+        <div class="text-center">
+          <span class="faq-badge">
+            <i class="fa-regular fa-circle-question text-[12px]" aria-hidden="true"></i>
+            Common Questions
+          </span>
+          <h2 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
+          <p class="mt-2 text-sm text-slate-600 sm:text-base">
+            Quick answers to help you navigate registration and platform features immediately.
+          </p>
+        </div>
+
+        <div class="mt-8 space-y-3" id="faqList">
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              How do I access course materials after enrolling?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer">
+              Once you enroll, your course materials appear instantly in your student dashboard under
+              "My Courses." You can stream video lessons, download readings, and track your progress
+              from there at any time.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              Are certificates provided upon completion?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer">
+              Yes. After you complete all required modules and assessments, a verified digital
+              certificate is generated automatically and can be downloaded or shared directly from
+              your profile.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              Can I learn on mobile devices?
+              <i class="fa-solid fa-chevron-down faq-chevron" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer">
+              Absolutely. The platform is fully responsive, and there are dedicated iOS and Android
+              apps so you can watch lessons, submit assignments, and track progress on the go.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+  </main>
+
+  <!-- ══ footer — identical markup on every page ══ -->
+
+  <!-- ══ footer — identical markup on every page ══ -->
+  <footer class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="../index.html" class="inline-flex items-center gap-2.5" aria-label="OLP home">
+            <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
+              <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
+            </span>
+            <span class="text-xl font-semibold text-blue-700">OLP</span>
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
+            Empowering learners worldwide with accessible, high-quality, and flexible education.
+          </p>
+          <ul class="mt-5 flex gap-2">
+            <li><a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook text-[18px]"
+                  aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title font-semibold">Quick Links</h3>
+          <ul class="footer-list mt-5 flex-row flex sm:flex-col gap-5 sm:gap-1.5">
+            <li><a href="../index.html" class="footer-link hover:underline">Home</a></li>
+            <li><a href="about.html" class="footer-link hover:underline">About Us</a></li>
+            <li><a href="courses.html" class="footer-link hover:underline">All Courses</a></li>
+            <li><a href="contact.html" class="footer-link hover:underline">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title font-semibold">Contact Details</h3>
+          <ul class="footer-list mt-5 flex flex-col gap-1.5">
+            <li>
+              <a href="mailto:learner@university.edu" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-[16px] text-gray-500" aria-hidden="true"></i>
+                learner@university.edu
+              </a>
+            </li>
+            <li>
+              <a href="tel:+855963254211" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-phone text-[16px] text-gray-500" aria-hidden="true"></i>
+                +855 963 254 211
+              </a>
+            </li>
+            <li class="flex items-center gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Preah+Monivong+Boulevard+Phnom+Penh"
+                class="footer-link flex items-center gap-2"><i
+                  class="fa-solid fa-location-dot text-[16px] text-gray-500" aria-hidden="true"></i>Phnom Penh,
+                Cambodia</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="mt-12 flex flex-col gap-3 border-t border-slate-100 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between lg:mt-16">
+        <p>&copy; <span id="year">2026</span> Online Learning Platform. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="footer-link hover:underline">Privacy Policy</a>
+          <a href="#" class="footer-link hover:underline">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+
 </html>

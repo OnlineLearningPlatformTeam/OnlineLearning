@@ -82,6 +82,107 @@ The Contact page allows users to contact the platform.
 
 ---
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+## 🏠 Home Page (`index.html`)
+
+The home page uses the **same course card component** as the catalogue — hover a
+card and its preview clip plays, click it and the details modal opens with the
+full video player and the enrol button. There is one source of truth for that
+markup and behaviour (`src/components/js/courses.js`), so the two pages can
+never drift apart:
+
+```html
+<!-- home: the three most popular courses -->
+<div id="featured" data-course-grid data-limit="3" class="grid …"></div>
+
+<!-- catalogue: all six, with search / chips / sort -->
+<div id="grid" data-course-grid class="grid …"></div>
+```
+
+Sections: hero (with the shared navbar), stats strip, "Why Learning", featured
+courses, the Learning advantage, a closing call to action and the shared footer.
+Course artwork and the hero image are local files — no stock-photo hotlinks.
+
+---
+
+## 🎓 Course Catalogue (`pages/courses.html`)
+
+The catalogue is data-driven: `src/components/js/courses.js` holds one
+`COURSES` array and renders the six cards from it, so adding a course means
+adding one object — not copy-pasting a card.
+
+| Behaviour | How it works |
+|---|---|
+| **Search** | Live filter over title, category, level, blurb, skills and instructor |
+| **Categories** | Chips with live counts, plus a **My courses** chip for enrolled courses |
+| **Sort** | Most Popular · Top Rated · Newest · Shortest First · Title A–Z |
+| **Result count** | “Showing X of Y courses”, mirrored in an `aria-live` region |
+| **Course details** | Clicking a card opens a modal (outcomes, instructor, level, hours, certificate). It is deep-linkable: `courses.html#course/webdev` |
+| **Video preview** | Hovering or focusing a card plays a silent, clean 6 s preview clip over the artwork; the file is only fetched on that first hover |
+| **Video player** | The details modal plays the same clip in a real `<video>` player (controls, sound, fullscreen, looping) — with a muted fallback plus a one-tap “sound on” chip when the browser blocks autoplay audio |
+| **Enrolment** | “Start Learning” stores the course in `localStorage` (`olp.enrolled.v1`), switches the button to *Enrolled*, and adds the course to **My courses** |
+| **Shareable filters** | The current search/category/sort are written to the URL |
+| **Keyboard & a11y** | One tab stop per card, `/` focuses search, `Esc` closes the modal, focus returns to the card |
+
+`src/main.js` loads a page module only when the page asks for it:
+
+```html
+<body data-page="courses">   <!-- → imports components/js/courses.js -->
+```
+
+### Video previews
+
+Two files per course, both in `src/assets/media/` (both optional — the page
+degrades to the artwork if a file is missing):
+
+| File | Role |
+|---|---|
+| `trailer-cardN.mp4` | Your **real course video**, played by the details-modal player (sound, fullscreen, native controls). |
+| `preview-cardN.mp4` | A **short silent loop** the card plays on hover (keep it small — a few hundred KB). |
+
+`scripts/build-previews.sh` fills in what's missing, and **never overwrites an
+existing `preview-cardN.mp4`**:
+
+```bash
+npm run previews:video          # needs ffmpeg (https://ffmpeg.org)
+FORCE=1 npm run previews:video  # rebuild existing preview clips too
+```
+
+For each course it makes a 6 s / 720p / ~100 KB clip — cut from
+`trailer-cardN.mp4` when you have one, otherwise a slow zoom of the course
+artwork. `trailer-card1.mp4` in this project is a real 3.8-minute lecture clip,
+so card 1 shows a loop of it on hover and the full video in the player.
+
+Reduced-motion users never get an autoplaying card clip, and the modal player
+always exposes the normal play/mute/fullscreen controls.
+
+### Build
+
+```bash
+npm install      # once — needs Node ^20.19 || >=22.12 (Vite 8)
+npm run dev      # http://localhost:5173
+npm run build    # production build of all four pages into dist/
+npm run preview  # serve the production build (run build first)
+```
+
+### Troubleshooting
+
+| Symptom | Cause / fix |
+|---|---|
+| `npm run dev` stops with an engine or syntax error | Check `node -v`. This project uses **Vite 8**, which needs **Node ^20.19 or >= 22.12**. |
+| `npm run preview` says `dist` does not exist | Run `npm run build` first — preview serves the build, not the source. |
+| The nav/footer look unstyled, or the cards are missing | Only some files were replaced. Copy the **whole** project: especially `src/components/js/courses.js`, `src/components/css/courses.css` and `src/style.css`. |
+| Cards show artwork but **no video**, or the player says *preview clip could not be loaded* | `src/assets/media/preview-card1..6.mp4` are missing from the copy. Restore that folder, or regenerate it with `npm run previews:video` (needs ffmpeg). |
+| Port 5173 already in use | Vite prints the alternative port it picked — use the URL it shows, or `npm run dev -- --port 5174`. |
+| Stale page after pulling changes | Hard-reload (Ctrl/Cmd + Shift + R); Vite caches nothing but the browser might. |
+
+---
+
+=======
+>>>>>>> 6446885c289b38e6fd2e9110806719b376b19900
+>>>>>>> feature/fix-code
 ## 🛠️ Technologies
 
 | Technology | Purpose |
@@ -115,12 +216,32 @@ OnlineLearning/
 │
 ├── src/                    # Source code
 │   ├── assets/             # Images and media
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+│   │   ├── media/          # preview-card*.mp4 (card preview clips)
+=======
+>>>>>>> 6446885c289b38e6fd2e9110806719b376b19900
+>>>>>>> feature/fix-code
 │   │   ├── logo/
 │   │   ├── courses/
 │   │   ├── team/
 │   │   └── banner/
+<<<<<<< HEAD
 │   ├── main.js             # Main JavaScript file
 │   └── style.css           # Tailwind import + custom CSS
+=======
+<<<<<<< HEAD
+│   ├── components/         # Feature code, split per page
+│   │   ├── css/            # courses.css · contact.css (page layers)
+│   │   └── js/             # courses.js · contact.js (page modules)
+│   ├── main.js             # Shared helpers + navbar + page loader
+│   └── style.css           # Tailwind import, design tokens, shared CSS
+=======
+│   ├── main.js             # Main JavaScript file
+│   └── style.css           # Tailwind import + custom CSS
+>>>>>>> 6446885c289b38e6fd2e9110806719b376b19900
+>>>>>>> feature/fix-code
 │
 ├── .gitignore
 ├── package.json
@@ -424,11 +545,23 @@ The project is currently being developed by the team.
 
 ### Future Improvements
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+- Course search, filtering, sorting, details modal and video previews — ✅ done (see above)
+- Enrolment with a real backend / student dashboard
+- Replace the generated preview clips with real course trailers
+=======
+>>>>>>> feature/fix-code
 - Course search
 - Course filtering
 - Interactive course details
 - Improved JavaScript interactions
 - Better mobile experience
+<<<<<<< HEAD
+=======
+>>>>>>> 6446885c289b38e6fd2e9110806719b376b19900
+>>>>>>> feature/fix-code
 - Additional learning features
 
 ---
