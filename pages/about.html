@@ -1,13 +1,586 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>onlinelearning</title>
-  </head>
-  <body>
-    <div class="bg-blue-500 text-white p-4 text-6xl">About Us</div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Online Learning Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="../src/components/css/contact.css" />
+
+</head>
+
+<body data-page="about">
+  <a class="skip-link" href="#contactForm">Skip to the contact form</a>
+
+  <!-- ══ navbar — identical markup on every page ══ -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6" aria-label="Main navigation">
+      <div class="flex items-center gap-3">
+        <button id="menu-btn" type="button"
+          class="menu-toggle inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-700 transition-all duration-300 ease-out hover:border-brand-500 hover:bg-brand-50 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/20 md:hidden"
+          aria-controls="menu" aria-expanded="false" aria-label="Open menu">
+          <span id="icon-open" class="icon-wrap absolute transition-all duration-300 ease-out"><i
+              class="fa-solid fa-bars" aria-hidden="true"></i></span>
+          <span id="icon-close" class="icon-wrap absolute opacity-0 rotate-90 transition-all duration-300 ease-out"><i
+              class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+        </button>
+
+        <a href="../index.html" class="flex items-center gap-3">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-soft">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+          </span>
+          <span class="text-xl font-bold tracking-tight text-brand-700">Learning</span>
+        </a>
+      </div>
+
+      <ul id="menu"
+        class="absolute left-4 right-4 top-full mt-2 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-3 shadow-soft opacity-0 pointer-events-none -translate-y-2 transition-all duration-300 ease-out md:static md:mt-0 md:flex md:w-auto md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0 md:shadow-none md:opacity-100 md:translate-y-0 md:pointer-events-auto">
+        <li><a href="../index.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">Home</a></li>
+        <li><a href="about.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-brand-600 md:px-3">About</a></li>
+        <li><a href="courses.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">Courses</a></li>
+        <li><a href="contact.html" aria-current="page"
+            class="nav-link block rounded-xl bg-brand-50 px-4 py-2 text-sm font-medium text-slate-600 md:bg-transparent md:px-3">Contact</a>
+        </li>
+        <li class="pt-1 md:hidden">
+          <a href="courses.html"
+            class="nav-cta inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-soft">
+            Explore Courses
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button type="button"
+          class="h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
+          aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+        <button type="button"
+          class="relative h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
+          aria-label="Notifications">
+          <i class="fa-regular fa-bell" aria-hidden="true"></i>
+          <span class="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-red-500"></span>
+        </button>
+        <a href="courses.html"
+          class="hidden items-center justify-center rounded-xl bg-brand-600 px-3 py-2 text-[11px] font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 sm:px-4 sm:text-xs md:hidden">Explore</a>
+        <a href="courses.html"
+          class="hidden rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 md:inline-flex">Explore</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="relative overflow-hidden  from-indigo-50/70 via-white to-white">
+    <div class="pointer-events-none absolute -top-24 -left-24 w-80 h-80 bg-indigo-100 rounded-full blur-3xl opacity-60">
+    </div>
+    <div class="pointer-events-none absolute -top-16 right-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-60">
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          class="w-3.5 h-3.5">
+          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Our Story Vision
+      </span>
+
+      <h1 class="mt-6 text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 leading-tight">
+        Empowering Curious Minds to
+        <span class="block text-indigo-600">Build Tomorrow</span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl mx-auto text-gray-500 leading-relaxed">
+        Online Learning Platform (OLP) was founded with a single mission: bridging the gap between
+        classroom theory and real-world technology skills through empathetic, accessible pedagogy.
+      </p>
+
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <button
+          class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors">
+          Explore Mission
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            class="w-4 h-4">
+            <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button
+          class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors">
+          Meet Instructors
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            class="w-4 h-4">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 pb-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+      <div>
+        <span
+          class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            class="w-3.5 h-3.5">
+            <path d="M12 3 2 8l10 5 10-5-10-5Z" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Educational Accessibility
+        </span>
+
+        <h2 class="mt-5 text-2xl sm:text-3xl font-bold text-gray-900 leading-snug">
+          Bridging the chasm between abstract textbooks and modern tech stacks.
+        </h2>
+
+        <p class="mt-5 text-gray-500 leading-relaxed">
+          Higher education often moves slowly, while software landscapes advance at lightning speed.
+          Online Learning Platform (OLP) addresses this imbalance by delivering structured, lab-first
+          curricula guided by practitioners directly building modern web software and cloud systems.
+        </p>
+
+        <p class="mt-4 text-gray-500 leading-relaxed">
+          Every course combines synchronous cohort accountability with self-paced exploratory modules,
+          ensuring students not only absorb syntax, but synthesize architectural concepts, design
+          patterns, and critical production trade-offs.
+        </p>
+
+
+        <div class="mt-8 grid grid-cols-3 gap-4">
+          <div class="p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-5 h-5 text-indigo-600">
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 2v4M8 2v4M3 10h18" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="mt-3 text-2xl font-bold text-gray-900">2022</div>
+            <div class="text-xs text-gray-400 tracking-wide">ESTABLISHED</div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-5 h-5 text-indigo-600">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <div class="mt-3 text-2xl font-bold text-gray-900">15+</div>
+            <div class="text-xs text-gray-400 tracking-wide">GLOBAL INSTRUCTORS</div>
+          </div>
+
+          <div class="p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-5 h-5 text-indigo-600">
+              <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="mt-3 text-2xl font-bold text-gray-900">94%</div>
+            <div class="text-xs text-gray-400 tracking-wide">COURSE COMPLETION</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="rounded-2xl border border-gray-100 shadow-sm p-4">
+        <div class="relative rounded-xl overflow-hidden">
+          <img src="../public/photo_2026-09-21_19-27-16.jpg" alt="Phnom Penh campus and online hub"
+            class="w-full h-full object-cover">
+          <span
+            class="absolute bottom-3 left-3 px-3 py-1 text-xs font-medium text-white bg-black/50 rounded-full backdrop-blur-sm">
+            Phnom Penh Campus Online learning
+          </span>
+        </div>
+
+        <h3 class="mt-5 text-lg font-semibold text-gray-900">Mentorship That Sticks</h3>
+        <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+          Our code reviewers and mentors provide continuous async feedback alongside weekly live
+          breakout workshops.
+        </p>
+
+        <div class="mt-5">
+          <div class="flex items-center justify-between text-xs font-medium text-gray-500 mb-1.5">
+            <span>Student Satisfaction Rate</span>
+            <span class="text-gray-900 font-semibold">98.4%</span>
+          </div>
+          <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-indigo-600 rounded-full" style="width: 98.4%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-16">
+
+    <span
+      class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        class="w-3.5 h-3.5">
+        <path d="M12 9v4M12 17h.01" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      The Problem Breakthrough
+    </span>
+
+    <h2 class="mt-4 text-3xl font-bold text-gray-900">Why We Created OLP</h2>
+    <p class="mt-3 max-w-2xl text-gray-500 leading-relaxed">
+      Traditional degrees burden learners with high debt and static syllabi, while unstructured
+      video repositories abandon students in isolation without feedback.
+    </p>
+
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+
+      <div class="lg:col-span-2 flex flex-col gap-6">
+        <div class="grid sm:grid-cols-2 gap-4">
+
+          <div class="p-5 rounded-xl bg-white border border-gray-100 shadow-sm">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="w-4.5 h-4.5">
+                <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-gray-900">Flexible Schedules</h3>
+            <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">
+              Bite-sized, modular sprints engineered for full-time professionals and active
+              degree-seeking students.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-white border border-gray-100 shadow-sm">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="w-4.5 h-4.5">
+                <rect x="3" y="4" width="18" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="m3 8 7.5 5L18 8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-gray-900">Project-Based Learning</h3>
+            <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">
+              Graduate with genuine multi-repo portfolio artifacts instead of trivial
+              fill-in-the-blank snippets.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-white border border-gray-100 shadow-sm">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="w-4.5 h-4.5">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-gray-900">Student Community</h3>
+            <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">
+              Connect with study groups, join regional hackathons, and exchange code reviews
+              inside active digital spaces.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-white border border-gray-100 shadow-sm">
+            <span class="flex items-center justify-center w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="w-4.5 h-4.5">
+                <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12 6v2m0 8v2M8 12h1m6 0h1" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+            <h3 class="mt-4 font-semibold text-gray-900">Affordable Education</h3>
+            <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">
+              Eliminating unnecessary institutional overhead to keep tuition transparent, fair,
+              and accessible to everyone.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="p-5 rounded-xl bg-white border border-gray-100 shadow-sm grid sm:grid-cols-2 gap-3">
+          <div class="flex items-center gap-2 text-sm text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-4 h-4 text-indigo-600 shrink-0">
+              <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Zero hidden subscription lock-ins
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-4 h-4 text-indigo-600 shrink-0">
+              <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Lifetime access to lesson updates
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-4 h-4 text-indigo-600 shrink-0">
+              <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Direct instructor office hours
+          </div>
+        </div>
+      </div>
+
+
+      <div class="rounded-2xl  from-indigo-600 to-blue-700 text-white p-6 flex flex-col justify-between">
+        <div>
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-white bg-white/15 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-3.5 h-3.5">
+              <path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Our Academic Guarantee
+          </span>
+
+          <p class="mt-5 text-xl font-semibold leading-snug">
+            "We don't teach to test. We prepare students to deploy real value on day one."
+          </p>
+
+        </div>
+
+      </div>
+
+
+  </section>
+
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+
+      <span
+        class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-indigo-700 bg-indigo-50 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          class="w-3.5 h-3.5">
+          <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Engineered For Outcomes
+      </span>
+
+      <h2 class="mt-4 text-3xl font-bold text-gray-900">Key Platform Benefits</h2>
+      <p class="mt-3 max-w-2xl mx-auto text-gray-500 leading-relaxed">
+        Everything you need to master contemporary digital design, programming, and architecture.
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 text-left">
+
+        <div class="p-5 rounded-xl border border-gray-100 shadow-sm">
+          <span class="flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-5 h-5">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+          <h3 class="mt-4 font-semibold text-gray-900">Industry-Standard Curriculum</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+            Content audited and updated quarterly with input from tech leads and design directors.
+          </p>
+          <a href="#"
+            class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700">
+            Read syllabus
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-3.5 h-3.5">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="p-5 rounded-xl border border-gray-100 shadow-sm">
+          <span class="flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-5 h-5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+          <h3 class="mt-4 font-semibold text-gray-900">Peer-to-Peer Community</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+            Pair program, brainstorm, and review work in active regional guilds and special
+            interest clubs.
+          </p>
+          <a href="#"
+            class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700">
+            Explore community
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-3.5 h-3.5">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="p-5 rounded-xl border border-gray-100 shadow-sm">
+          <span class="flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-5 h-5">
+              <rect x="2" y="4" width="20" height="13" rx="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8 21h8M12 17v4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <h3 class="mt-4 font-semibold text-gray-900">Interactive Coding &amp; Labs</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+            In-browser playgrounds and containerized environments. No tedious setup needed to
+            start coding.
+          </p>
+          <a href="#"
+            class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700">
+            Try sandbox
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-3.5 h-3.5">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="p-5 rounded-xl border border-gray-100 shadow-sm">
+          <span class="flex items-center justify-center w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-5 h-5">
+              <circle cx="12" cy="8" r="6" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M9 14 7 22l5-3 5 3-2-8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <h3 class="mt-4 font-semibold text-gray-900">Verified Certificates</h3>
+          <p class="mt-2 text-sm text-gray-500 leading-relaxed">
+            Tamper-proof verifiable credentials that link directly to demonstrated GitHub repos
+            and project links.
+          </p>
+          <a href="#"
+            class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700">
+            Sample credential
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-3.5 h-3.5">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div
+        class="mt-10 rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col sm:flex-row items-center justify-between gap-5 text-left">
+        <div>
+          <h3 class="text-lg font-semibold text-gray-900">Ready to start building?</h3>
+          <p class="mt-1 text-sm text-gray-500">Join hundreds of active learners accelerating their careers right now.
+          </p>
+        </div>
+        <div class="flex items-center gap-3 shrink-0">
+          <button
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors">
+            Browse All Courses
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-4 h-4">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" class="w-4 h-4">
+              <path d="M14 9V5a3 3 0 0 0-6 0v4M5 9h14l-1 11H6L5 9Z" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Talk with a Mentor
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <footer class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6 ">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- Brand -->
+
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#" class="inline-flex items-center gap-2.5" aria-label="OLP home">
+            <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
+              <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
+            </span>
+            <span class="text-xl font-semibold text-blue-700">OLP</span>
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
+            Empowering learners worldwide with accessible, high-quality, and flexible education.
+          </p>
+          <ul class="mt-5 flex gap-2">
+            <li><a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook text-[18px]"
+                  aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title font-semibold">Quick Links</h3>
+          <ul class="footer-list mt-5 flex-row flex sm:flex-col gap-5 sm:gap-1.5">
+            <li><a href="../index.html" class="footer-link hover:underline">Home</a></li>
+            <li><a href="about.html" class="footer-link hover:underline">About Us</a></li>
+            <li><a href="courses.html" class="footer-link hover:underline">All Courses</a></li>
+            <li><a href="contact.html" class="footer-link hover:underline">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title font-semibold">Contact Details</h3>
+          <ul class="footer-list mt-5 flex flex-col gap-1.5">
+            <li>
+              <a href="mailto:learner@university.edu" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-[16px] text-gray-500" aria-hidden="true"></i>
+                learner@university.edu
+              </a>
+            </li>
+            <li>
+              <a href="tel:+855963254211" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-phone text-[16px] text-gray-500" aria-hidden="true"></i>
+                +855 963 254 211
+              </a>
+            </li>
+            <li class="flex items-center gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Preah+Monivong+Boulevard+Phnom+Penh"
+                class="footer-link flex items-center gap-2"><i
+                  class="fa-solid fa-location-dot text-[16px] text-gray-500" aria-hidden="true"></i>Phnom Penh,
+                Cambodia</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="mt-12 flex flex-col gap-3 border-t border-slate-100 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between lg:mt-16">
+        <p>&copy; <span id="year">2026</span> Online Learning Platform. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="footer-link hover:underline">Privacy Policy</a>
+          <a href="#" class="footer-link hover:underline">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+
 </html>

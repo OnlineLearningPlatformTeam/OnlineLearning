@@ -1,1 +1,313 @@
+/* ═══════════════════════════════════════════════════════════════════
+   OLP · style.css — Tailwind entry + site-wide layer
+   Loaded by main.js on every page. Page layers live in
+   components/css/courses.css and components/css/contact.css.
+   ═══════════════════════════════════════════════════════════════════ */
 @import "tailwindcss";
+
+/* ── design tokens ────────────────────────────────────────────────
+   Named colours generate real utilities, so the class names the team
+   already uses in the HTML (bg-soft, text-primary, ring-secondary,
+   brand-*, shadow-soft) actually resolve instead of being dropped. */
+@theme {
+  --color-soft: #eef2ff;
+  --color-primary: #1d4ed8;
+  --color-secondary: #3b82f6;
+
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dfeaff;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+
+  --shadow-soft: 0 10px 30px rgba(79, 70, 229, 0.12);
+
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ── base ─────────────────────────────────────────────────────────── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 25%),
+    linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%);
+  background-attachment: fixed;
+}
+
+/* the fixed navbar would otherwise cover the top of every page */
+:root {
+  --olp-nav-h: 69px;
+}
+
+.page-head {
+  padding-top: var(--olp-nav-h);
+}
+
+/* anchored sections keep clear of the fixed navbar */
+[id] {
+  scroll-margin-top: calc(var(--olp-nav-h) + 16px);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  border-radius: 0 0 0.5rem 0;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ── scrollbars ───────────────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  background-clip: content-box;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── navbar ───────────────────────────────────────────────────────── */
+.nav-link {
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-1px);
+}
+
+.nav-cta {
+  transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+}
+
+.menu-toggle {
+  transform-origin: center;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.04);
+}
+
+.menu-toggle[aria-expanded="true"] {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: var(--color-brand-600);
+}
+
+.icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+}
+
+/* the mobile panel animates open instead of snapping */
+#menu.is-open {
+  animation: panelIn .22s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── buttons ──────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: .5rem;
+  padding: .72rem 1.25rem;
+  font-size: .875rem;
+  font-weight: 500;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:active {
+  transform: scale(.985);
+}
+
+/* ── footer ───────────────────────────────────────────────────────── */
+.footer-title {
+  font-size: .875rem;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -.01em;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-link {
+  color: #475569;
+  font-size: .875rem;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: color .2s ease, background-size .25s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+  background-size: 100% 1px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: .6rem;
+  background: var(--color-soft);
+  color: #4338ca;
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+
+.social-btn:hover {
+  background: #e0e7ff;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* ── scroll reveal (JS adds .reveal-ready, with a safety reveal) ──── */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+body.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+body.reveal-ready .reveal.in {
+  animation: fadeUp .55s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── toasts ───────────────────────────────────────────────────────── */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-popIn {
+  animation: popIn .26s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+/* ── motion preferences & print ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+
+  .reveal,
+  body.reveal-ready .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+
+  .reveal,
+  body.reveal-ready .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  header,
+  #course-modal,
+  #toasts,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+}
