@@ -1,13 +1,520 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>onlinelearning</title>
-  </head>
-  <body>
-    <div class="bg-blue-500 text-white p-4 text-6xl">Hello, Vite!</div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home · Online Learning Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <!-- course card layer: hover video preview, "Watch preview" pill, details modal -->
+  <link rel="stylesheet" href="src/components/css/courses.css" />
+  <link rel="stylesheet" href="src/components/css/contact.css" />
+</head>
+
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ══ navbar — identical markup on every page ══ -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6" aria-label="Main navigation">
+      <div class="flex items-center gap-3">
+        <button id="menu-btn" type="button"
+          class="menu-toggle inline-flex items-center justify-center rounded-xl border border-slate-200 bg-slate-50 p-3 text-slate-700 transition-all duration-300 ease-out hover:border-brand-500 hover:bg-brand-50 hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/20 md:hidden"
+          aria-controls="menu" aria-expanded="false" aria-label="Open menu">
+          <span id="icon-open" class="icon-wrap absolute transition-all duration-300 ease-out"><i
+              class="fa-solid fa-bars" aria-hidden="true"></i></span>
+          <span id="icon-close" class="icon-wrap absolute opacity-0 rotate-90 transition-all duration-300 ease-out"><i
+              class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+        </button>
+
+        <a href="index.html" class="flex items-center gap-3">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-soft">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+          </span>
+          <span class="text-xl font-bold tracking-tight text-brand-700">Learning</span>
+        </a>
+      </div>
+
+      <ul id="menu"
+        class="absolute left-4 right-4 top-full mt-2 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-3 shadow-soft opacity-0 pointer-events-none -translate-y-2 transition-all duration-300 ease-out md:static md:mt-0 md:flex md:w-auto md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0 md:shadow-none md:opacity-100 md:translate-y-0 md:pointer-events-auto">
+        <li><a href="index.html" aria-current="page"
+            class="nav-link block rounded-xl bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700 md:bg-transparent md:px-3">Home</a>
+        </li>
+        <li><a href="pages/about.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">About</a></li>
+        <li><a href="pages/courses.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">Courses</a></li>
+        <li><a href="pages/contact.html"
+            class="nav-link block rounded-xl px-4 py-2 text-sm font-medium text-slate-600 md:px-3">Contact</a></li>
+        <li class="pt-1 md:hidden">
+          <a href="pages/courses.html"
+            class="nav-cta inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-white shadow-soft">
+            Explore Courses
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button type="button"
+          class="h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
+          aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+        <button type="button"
+          class="relative h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
+          aria-label="Notifications">
+          <i class="fa-regular fa-bell" aria-hidden="true"></i>
+          <span class="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-red-500"></span>
+        </button>
+        <a href="pages/courses.html"
+          class="hidden items-center justify-center rounded-xl bg-brand-600 px-3 py-2 text-[11px] font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 sm:px-4 sm:text-xs md:hidden">Explore</a>
+        <a href="pages/courses.html"
+          class="hidden rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 md:inline-flex">Explore</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="page-head">
+    <section class="bg-blue-50 px-4 py-6 md:px-10 lg:px-12 mt-4">
+      <div class="mx-auto max-w-7xl rounded-2xl bg-[#f1f4ff] p-5 md:p-8 shadow-sm">
+        <div class="grid items-center gap-8 lg:grid-cols-2">
+          <div>
+            <div
+              class="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[10px] font-semibold text-primary shadow-sm">
+              <span class="h-2 w-2 rounded-full bg-primary text-blue-500"></span>
+              NEXT COHORT ENROLLING NOW
+            </div>
+            <h1 class="text-2xl font-bold tracking-tight text-black md:text-5xl">
+              Learn New Skills.
+              <span class="mt-2 block text-blue-600">Build Your Future.</span>
+            </h1>
+            <p class="mt-4 max-w-lg text-sm leading-6 text-slate-600">Access high-quality, practical courses crafted for
+              modern students and ambitious career switchers. Learn at your own pace from anywhere in the world.</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="pages/courses.html"
+                class="rounded-lg bg-blue-800 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-blue-700">Explore
+                Courses →</a>
+              <a href="pages/contact.html"
+                class="rounded-lg bg-white px-5 py-3 text-sm font-semibold text-black shadow-sm transition hover:bg-slate-100">Contact
+                Us</a>
+            </div>
+            <div class="mt-7 flex items-center gap-3">
+              <div class="flex -space-x-2">
+                <span
+                  class="grid h-8 w-8 place-items-center rounded-full border-2 border-white bg-blue-100 text-[10px] font-bold text-blue-700">SA</span>
+                <span
+                  class="grid h-8 w-8 place-items-center rounded-full border-2 border-white bg-indigo-100 text-[10px] font-bold text-indigo-700">VK</span>
+                <span
+                  class="grid h-8 w-8 place-items-center rounded-full border-2 border-white bg-sky-100 text-[10px] font-bold text-sky-700">ML</span>
+                <div
+                  class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-blue-100 text-[9px] font-bold text-primary">
+                  +2K
+                </div>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-slate-800">
+                  <i class="fa-solid fa-star" style="color: rgb(255, 212, 59);"></i> 4.9 / 5.0
+                </div>
+                <div class="text-[9px] text-slate-500">
+                  Validated learner reviews worldwide
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-3 -top-4 z-10 rounded-xl bg-white px-4 py-2 shadow-lg">
+              <div class="flex items-center gap-2">
+                <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-100 text-primary">
+                  <i class="fa-solid fa-gear"></i>
+                </div>
+                <div>
+                  <p class="text-[8px] uppercase text-slate-400">Accredited</p>
+                  <p class="text-[10px] font-bold text-slate-800">Verified Career Diploma</p>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-white p-3 shadow-lg">
+              <div class="relative overflow-hidden rounded-xl">
+                <img src="src/assets/img-card1.png" alt="Students building a web project"
+                  class="h-64 w-full object-cover" />
+                <div
+                  class="absolute bottom-3 left-3 flex items-center gap-2 rounded-full bg-black/50 px-3 py-1 text-[9px] text-white backdrop-blur-sm">
+                  <span class="h-2 w-2 rounded-full bg-green-400"></span>
+                  Live Coding Studio
+                </div>
+                <div class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-[8px] text-white">SESSION
+                  3
+                  OF 16</div>
+              </div>
+              <div class="mt-3 rounded-xl bg-[#f0f4ff] p-3">
+                <div class="mb-2 flex justify-between">
+                  <span class="text-[10px] font-bold text-slate-700">Completed Lesson</span>
+                  <span class="text-[9px] font-bold text-primary">50% Completed</span>
+                </div>
+                <div class="h-1.5 overflow-hidden rounded-full bg-blue-100">
+                  <div class="h-full w-[50%] rounded-full bg-primary"></div>
+                </div>
+                <p class="mt-2 text-[8px] text-slate-500">Lesson 3: Using Tailwind with color & font-size</p>
+              </div>
+            </div>
+            <div class="absolute -bottom-3 -right-3 rounded-xl bg-white p-2 shadow-lg">
+              <div class="flex items-center gap-2">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-sm font-bold text-black">
+                  50%</div>
+                <div>
+                  <p class="text-[9px] font-bold text-slate-800">Placement Success</p>
+                  <p class="text-[8px] text-slate-500">Hired within 90 days</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 grid grid-cols-2 gap-3 rounded-xl bg-white p-5 shadow-sm md:grid-cols-4">
+          <div class="text-center bg-blue-50 p-2 rounded-lg">
+            <h2 class="text-3xl font-semibold text-blue-600">
+              5,000+
+            </h2>
+            <p class="text-[10px] font-bold text-black">
+              Active Learners
+            </p>
+            <p class="text-[8px] text-slate-400">Across 68 countries</p>
+          </div>
+          <div class="text-center bg-blue-50 p-2 rounded-lg">
+            <h2 class="text-3xl font-semibold text-blue-600">6</h2>
+            <p class="text-[10px] font-bold text-slate-700">
+              Curated Programmes</p>
+            <p class="text-[8px] text-slate-400">Updated every term</p>
+          </div>
+          <div class="text-center bg-blue-50 p-2 rounded-lg">
+            <h2 class="text-3xl font-semibold text-blue-600">76%</h2>
+            <p class="text-[10px] font-bold text-gray-600">Satisfaction Rate</p>
+            <p class="text-[8px] text-slate-400">Real student ratings</p>
+          </div>
+          <div class="text-center bg-blue-50 p-2 rounded-lg">
+            <h2 class="text-3xl font-semibold text-blue-600">
+              24/7
+            </h2>
+            <p class="text-[10px] font-bold text-gray-700">
+              Mentor Support
+            </p>
+            <p class="text-[8px] text-slate-400">
+              Always by your side
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-blue-50 px-12 py-4 sm:px-6 lg:px-12 lg:py-12">
+      <div class="mx-auto max-w-3xl px-4 text-center">
+
+        <!-- Small Heading -->
+        <h5 class="text-xs font-bold tracking-wide text-blue-700 sm:text-sm">
+          ENGINEERED FOR MASTERY
+        </h5>
+
+        <!-- Main Heading -->
+        <h2 class="mt-2 text-2xl font-semibold leading-tight text-gray-900
+           sm:text-3xl
+           lg:text-4xl">
+          Why Learning is Built for Your Success
+        </h2>
+
+        <!-- Description -->
+        <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-600
+           sm:text-base">
+          Our mission is to make learning intuitive, flexible, and career-oriented.
+          No filler, no outdated syllabus — only hands-on capabilities employers
+          are actively hunting for.
+        </p>
+
+      </div>
+
+      <!-- --method-- -->
+      <div class="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          class="border-none p-8 rounded-2xl bg-white text-black shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <i class="fa-solid fa-laptop border-none bg-blue-200 rounded-xl p-3"></i>
+          <h2 class="font-semibold text-lg">Intuitive Campus Experience</h2>
+          <p class="text-gray-700">Study on any screen with seamless automatic synchronization. Pick up your lesson on
+            your commute and finish
+            your coding lab at your desktop.</p>
+          <p class="text-blue-800 font-semibold pt-12">Learn about the platform →</p>
+        </div>
+        <div
+          class="border-none p-8 rounded-2xl bg-white text-black shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <i class="fa-solid fa-brain border-none bg-blue-200 rounded-xl p-3"></i>
+          <h2 class="font-semibold text-lg ">Bite-Sized Modular Tracks</h2>
+          <p class="text-gray-700">Ditch 2-hour monologues. Our content is compartmentalized into structured 10-to-15
+            minute interactive modules
+            paired with immediate retention tests.</p>
+          <p class="text-blue-800 font-semibold pt-12">Explore learning methodology →</p>
+        </div>
+        <div
+          class="border-none p-8 rounded-2xl bg-white text-black shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <i class="fa-solid fa-hand-holding-heart border-none bg-blue-200 rounded-xl p-3"></i>
+          <h2 class="font-semibold text-lg ">Industry Practitioner Reviews </h2>
+          <p class="text-gray-700">Every major assignment receives individual code or portfolio commentary directly from
+            vetted industry seniors
+            working at top tech consultancies.</p>
+          <p class="text-blue-800 font-semibold pt-12">Meet our mentor pool →</p>
+        </div>
+      </div>
+    </section>
+    <!-- --card-- -->
+    <section class="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+      <div class="mb-7 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="mb-1 text-[11px] font-bold uppercase tracking-[0.12em] text-blue-600">Curated Pathways </p>
+          <h2 class="text-2xl font-bold tracking-tight text-[#14213d] md:text-[25px]">Popular Courses for Modern
+            Careers</h2>
+          <p class="mt-1 text-sm text-gray-500">High-demand skills instructed by top practitioners.</p>
+        </div>
+        <a href="pages/courses.html"
+          class="inline-flex items-center gap-1 text-sm font-semibold text-blue-600 transition hover:text-blue-800">Browse
+          all courses <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+      </div>
+
+      <!-- Featured cards: the exact same component as pages/courses.html —
+         hover/focus plays the course preview clip, clicking opens the player -->
+      <div id="featured" data-course-grid data-limit="3"
+        class="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+      <noscript>
+        <p class="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
+          JavaScript is off, so the featured courses cannot be rendered.
+          <a class="font-semibold underline" href="pages/courses.html">Browse the course catalogue</a>.
+        </p>
+      </noscript>
+      </div>
+    </section>
+
+    <section class="bg-white px-12 py-4 sm:px-6 lg:px-12 lg:py-12">
+      <div class="mx-auto max-w-3xl text-center">
+
+        <h5 class="text-xs font-bold tracking-wide text-blue-700 sm:text-sm">
+          THE LEARNING ADVANTAGE
+        </h5>
+
+        <h2 class="mt-2 text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl lg:text-4xl">
+          Education Designed Around Your Life
+        </h2>
+
+        <p class="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base">
+          We removed rigid schedules, expensive textbook fees, and gatekeeping
+          so you can concentrate purely on progress.
+        </p>
+
+      </div>
+
+      <!-- --cards-- -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          class="bg-blue-50 p-6 rounded-2xl mt-8 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <i class="fa-solid fa-code-compare border-none bg-blue-200 rounded-xl p-3"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Learn Anywhere</h3>
+          <p class="text-gray-600 pb-2">Cloud-based access on desktop, tablet, and mobile anytime. Your study state and
+            code sandboxes are always in
+            sync.</p>
+        </div>
+        <div
+          class="bg-blue-50 p-6 rounded-2xl mt-8 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <i class="fa-regular fa-clock border-none bg-blue-200 rounded-xl p-3"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Learn at Your Own Pace</h3>
+          <p class="text-gray-600 pb-2">Lifetime access to bite-sized lessons, quizzes, and project repositories. Never
+            stress about arbitrary
+            assignment deadlines.</p>
+        </div>
+        <div
+          class="bg-blue-50 p-6 rounded-2xl mt-8 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <i class="fa-solid fa-rocket border-none bg-blue-200 rounded-xl p-3"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Develop New Skills</h3>
+          <p class="text-gray-600 pb-2">Real-world projects designed for portfolio building. Showcase verifiable GitHub
+            repos and live Figma
+            prototypes to recruiters.</p>
+        </div>
+        <div
+          class="bg-blue-50 p-6 rounded-2xl mt-8 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+          <i class="fa-solid fa-graduation-cap border-none bg-blue-200 rounded-xl p-3"></i>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Accessible Learning</h3>
+          <p class="text-gray-600 pb-2">Student-friendly pricing, flexible zero-interest split options, scholarships,
+            and
+            free starter foundational
+            tracks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-3 my-4 flex flex-col items-center justify-center rounded-2xl bg-blue-700 p-6 text-center text-white
+           sm:mx-8 sm:my-8 sm:p-8
+           lg:mx-12 lg:my-12 lg:p-10">
+
+        <!-- Icon -->
+        <i class="fa-solid fa-graduation-cap rounded-xl bg-blue-600 p-3">
+        </i>
+
+        <!-- Title -->
+        <h2 class="pt-4 text-2xl leading-tight md:text-3xl">
+          Ready to Start Your Learning Journey?
+        </h2>
+
+        <!-- Description -->
+        <p class="mt-2 max-w-2xl text-sm leading-relaxed
+             sm:text-base">
+          Join thousands of students building their dream careers with
+          <br class="hidden sm:inline">
+          Learning today. Unlock unlimited possibilities with dedicated mentors.
+        </p>
+
+        <!-- Buttons -->
+        <div class="mt-8 flex w-full flex-col gap-3
+             sm:w-auto sm:flex-row">
+
+          <button class="w-full rounded-lg bg-white p-2 text-blue-800
+               transition duration-300
+               hover:bg-blue-500 hover:text-white
+               sm:w-auto">
+            Browse All Course
+          </button>
+
+          <button class="w-full rounded-lg bg-blue-600 p-2 text-white
+               transition duration-300
+               hover:bg-white hover:text-black
+               sm:w-auto">
+            Get in Touch
+          </button>
+
+        </div>
+
+        <!-- Benefits -->
+        <ul class="mt-6 grid w-full max-w-md grid-cols-1
+             justify-items-center gap-2 text-xs
+             sm:max-w-lg sm:grid-cols-3 sm:gap-4 sm:text-sm
+             lg:max-w-none">
+
+          <li class="flex items-center gap-1 whitespace-nowrap rounded-xl p-2
+               hover:bg-gray-200 hover:text-black">
+            <i class="fa-solid fa-circle-check"></i>
+            Free 7-day Trial
+          </li>
+
+          <li class="flex items-center gap-1 whitespace-nowrap rounded-xl p-2
+               hover:bg-gray-200 hover:text-black">
+            <i class="fa-regular fa-clock"></i>
+            Cancel anytime
+          </li>
+
+          <li class="flex items-center gap-1 whitespace-nowrap rounded-xl p-2
+               hover:bg-gray-200 hover:text-black">
+            <i class="fa-solid fa-circle-check"></i>
+            Accredited Badges
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+    <!-- ══ course details modal (filled by courses.js) ══════════════════ -->
+    <div id="course-modal" class="fixed inset-0 z-[60] hidden items-end justify-center sm:items-center" role="dialog"
+      aria-modal="true" aria-labelledby="cm-title">
+      <div class="absolute inset-0" data-close-modal></div>
+      <div class="modal-shell relative z-10 w-full max-w-3xl rounded-t-2xl bg-white shadow-2xl sm:mx-4 sm:rounded-2xl">
+        <div class="sticky top-0 z-20 -mb-14 flex justify-end p-3 pointer-events-none">
+          <button id="cm-close" type="button" data-close-modal
+            class="pointer-events-auto grid h-9 w-9 place-items-center rounded-full bg-white/90 text-slate-700 shadow transition hover:bg-white"
+            aria-label="Close course details">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div id="cm-body"></div>
+      </div>
+    </div>
+
+    <div id="toasts"
+      class="pointer-events-none fixed inset-x-0 bottom-4 z-[70] flex flex-col items-center gap-2 px-4 sm:items-end sm:px-6">
+    </div>
+  </main>
+
+  <!-- ══ footer — identical markup on every page ══ -->
+  <footer class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="index.html" class="inline-flex items-center gap-2.5" aria-label="OLP home">
+            <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
+              <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
+            </span>
+            <span class="text-xl font-semibold text-blue-700">OLP</span>
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
+            Empowering learners worldwide with accessible, high-quality, and flexible education.
+          </p>
+          <ul class="mt-5 flex gap-2">
+            <li><a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github text-[18px]"
+                  aria-hidden="true"></i></a></li>
+            <li><a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook text-[18px]"
+                  aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title font-semibold">Quick Links</h3>
+          <ul class="footer-list mt-5 flex-row flex sm:flex-col gap-5 sm:gap-1.5">
+            <li><a href="index.html" class="footer-link hover:underline">Home</a></li>
+            <li><a href="pages/about.html" class="footer-link hover:underline">About Us</a></li>
+            <li><a href="pages/courses.html" class="footer-link hover:underline">All Courses</a></li>
+            <li><a href="pages/contact.html" class="footer-link hover:underline">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-title font-semibold">Contact Details</h3>
+          <ul class="footer-list mt-5 flex flex-col gap-1.5">
+            <li>
+              <a href="mailto:learner@university.edu" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-[16px] text-gray-500" aria-hidden="true"></i>
+                learner@university.edu
+              </a>
+            </li>
+            <li>
+              <a href="tel:+855963254211" class="footer-link flex items-center gap-2">
+                <i class="fa-solid fa-phone text-[16px] text-gray-500" aria-hidden="true"></i>
+                +855 963 254 211
+              </a>
+            </li>
+            <li class="flex items-center gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Preah+Monivong+Boulevard+Phnom+Penh"
+                class="footer-link flex items-center gap-2"><i
+                  class="fa-solid fa-location-dot text-[16px] text-gray-500" aria-hidden="true"></i>Phnom Penh,
+                Cambodia</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="mt-12 flex flex-col gap-3 border-t border-slate-100 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between lg:mt-16">
+        <p>&copy; <span id="year">2026</span> Online Learning Platform. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="footer-link hover:underline">Privacy Policy</a>
+          <a href="#" class="footer-link hover:underline">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+
 </html>

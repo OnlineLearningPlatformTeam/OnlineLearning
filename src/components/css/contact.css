@@ -1,4 +1,5 @@
-@import "tailwindcss";
+/* Contact page layer. Tailwind utilities arrive through src/style.css
+   (loaded by main.js), so this file must not import Tailwind again. */
 /* Navbar */
 
 .nav-link,
@@ -357,4 +358,11 @@ textarea:focus-visible {
 .faq-item.open .faq-answer {
     max-height: 300px;
     padding: 0 1.25rem 1.125rem;
+}
+
+/* The shared layer paints a soft gradient for the catalogue/home pages;
+   the contact page keeps its own flat slate background (higher specificity
+   so it wins regardless of stylesheet order). */
+body[data-page="contact"] {
+    background: #f8fafc;
 }
