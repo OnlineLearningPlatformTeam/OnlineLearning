@@ -11,7 +11,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Khmer:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
   <!-- page layer; Tailwind arrives through ../src/main.js → style.css -->
@@ -36,9 +36,9 @@
         </button>
 
         <a href="../index.html" class="flex items-center gap-3">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-soft">
-            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-          </span>
+          <!-- <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-soft"> -->
+            <img src="../public/flags/logo.svg" class="h-12 w-12" alt="Learning">
+          <!-- </span> -->
           <span class="text-xl font-bold tracking-tight text-brand-700">Learning</span>
         </a>
       </div>
@@ -63,7 +63,7 @@
       </ul>
 
       <div class="flex items-center gap-2 sm:gap-3">
-        <button type="button" data-focus-search
+        <!-- <button type="button" data-focus-search
           class="h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
           aria-label="Search courses">
           <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -73,7 +73,7 @@
           aria-label="Notifications">
           <i class="fa-regular fa-bell" aria-hidden="true"></i>
           <span class="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-red-500"></span>
-        </button>
+        </button> -->
         <a href="#catalogue"
           class="hidden items-center justify-center rounded-xl bg-brand-600 px-3 py-2 text-[11px] font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 sm:px-4 sm:text-xs md:hidden">Explore</a>
         <a href="#catalogue"
@@ -86,7 +86,7 @@
     <!-- ══ page intro ═════════════════════════════════════════════════ -->
     <section class="mx-auto max-w-7xl px-4 pb-6 pt-8 sm:px-6" aria-labelledby="catalogue-title">
       <span
-        class="inline-flex items-center gap-2 rounded-full bg-blue-100/80 px-3 py-1 text-xs font-medium text-gray-700">
+        class="inline-flex items-center gap-2 rounded-full border border-blue-400 px-3 py-1 text-xs font-medium text-blue-700">
         <span class="h-2 w-2 rounded-full bg-blue-600"></span>Curated Career Paths 2026
       </span>
 
@@ -263,17 +263,13 @@
   </div>
 
   <!-- ══ footer — identical markup on every page ══ -->
-
-  <!-- ══ footer — identical markup on every page ══ -->
   <footer class="bg-white">
     <div class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6">
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         <div class="sm:col-span-2 lg:col-span-1">
-          <a href="../index.html" class="inline-flex items-center gap-2.5" aria-label="OLP home">
-            <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
-              <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
-            </span>
-            <span class="text-xl font-semibold text-blue-700">OLP</span>
+          <a href="../index.html" class="footer-brand inline-flex items-center gap-2.5" aria-label="Learning home">
+            <img src="../public/flags/logo.svg" alt="Learning" class="footer-logo" />
+            <span class="mt-2 text-xl font-semibold text-blue-700">Learning</span>
           </a>
           <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
             Empowering learners worldwide with accessible, high-quality, and flexible education.
@@ -289,7 +285,7 @@
                   aria-hidden="true"></i></a></li>
           </ul>
         </div>
-        <div>
+        <div class="mt-2">
           <h3 class="footer-title font-semibold">Quick Links</h3>
           <ul class="footer-list mt-5 flex-row flex sm:flex-col gap-5 sm:gap-1.5">
             <li><a href="../index.html" class="footer-link hover:underline">Home</a></li>
@@ -298,7 +294,7 @@
             <li><a href="contact.html" class="footer-link hover:underline">Contact</a></li>
           </ul>
         </div>
-        <div>
+        <div class="mt-2">
           <h3 class="footer-title font-semibold">Contact Details</h3>
           <ul class="footer-list mt-5 flex flex-col gap-1.5">
             <li>

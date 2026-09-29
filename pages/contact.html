@@ -34,9 +34,9 @@
         </button>
 
         <a href="../index.html" class="flex items-center gap-3">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-soft">
-            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-          </span>
+          <!-- <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-lg text-white shadow-soft"> -->
+            <img src="../public/flags/logo.svg" class="h-12 w-12" alt="Learning">
+          <!-- </span> -->
           <span class="text-xl font-bold tracking-tight text-brand-700">Learning</span>
         </a>
       </div>
@@ -61,7 +61,7 @@
       </ul>
 
       <div class="flex items-center gap-2 sm:gap-3">
-        <button type="button"
+        <!-- <button type="button"
           class="h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-100 md:inline-flex"
           aria-label="Search">
           <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
@@ -71,7 +71,7 @@
           aria-label="Notifications">
           <i class="fa-regular fa-bell" aria-hidden="true"></i>
           <span class="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-white bg-red-500"></span>
-        </button>
+        </button> -->
         <a href="courses.html"
           class="hidden items-center justify-center rounded-xl bg-brand-600 px-3 py-2 text-[11px] font-semibold text-white shadow-soft transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-brand-700 sm:px-4 sm:text-xs md:hidden">Explore</a>
         <a href="courses.html"
@@ -81,7 +81,7 @@
   </header>
 
   <main id="main" class="page-head">
-    <section class="mt-14">
+    <section class="none">
       <div class="mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-6">
 
         <span class="badge rounded-full px-2 py-1 shadow-cyan-500/50">
@@ -249,7 +249,7 @@
                 <span class="hint">Department routing</span>
               </div>
               <div id="subject-field" class="subject-field group relative mt-2 flex items-center">
-                <i class="fa-solid fa-shapes pointer-events-none absolute left-4 top-7.5 z-10 -translate-y-1/2 text-base text-slate-400 transition duration-300 group-hover:text-slate-600 group-focus-within:text-slate-700"
+                <i class="fa-solid fa-shapes pointer-events-none absolute left-4 top-1/2 z-10 -translate-y-1/2 text-base text-slate-400 transition duration-300 group-hover:text-slate-600 group-focus-within:text-slate-700"
                   aria-hidden="true"></i>
                 <select id="subject" name="subject" required
                   class="input h-12 w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50 pl-12 pr-11 text-base text-slate-600 outline-none transition duration-300 hover:border-slate-300 hover:bg-white hover:shadow-md hover:shadow-slate-200/60 focus:border-slate-400 focus:bg-white focus:ring-4 focus:ring-slate-200/70 invalid:text-slate-500 sm:text-lg">
@@ -297,7 +297,7 @@
 
           <div class="mt-4 flex flex-col gap-4 rounded-xl bg-blue-100 p-5 sm:flex-row sm:items-center">
             <span class="grid size-11 shrink-0 place-items-center rounded-full bg-white text-blue-700 shadow-sm">
-              <i class="fa-solid fa-graduation-cap text-[18px]" aria-hidden="true"></i>
+              <i class="fa-solid fa-graduation-cap text-[18px] text-blue-700" aria-hidden="true"></i>
             </span>
             <div class="min-w-0 flex-1">
               <h3 class="text-lg font-semibold text-slate-900">Schedule a Virtual Consultation?</h3>
@@ -315,8 +315,8 @@
       <div class="faq-wrap px-5 py-10 sm:px-10">
 
         <div class="text-center">
-          <span class="faq-badge">
-            <i class="fa-regular fa-circle-question text-[12px]" aria-hidden="true"></i>
+          <span class="border rounded-full border-blue-600 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-blue-700">
+            <i class="fa-regular mr-1 fa-circle-question text-[12px]" aria-hidden="true"></i>
             Common Questions
           </span>
           <h2 class="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl">Frequently Asked Questions</h2>
@@ -366,9 +366,9 @@
       </div>
     </section>
 
-    <!-- footer -->
   </main>
 
+  <!-- footer -->
   <!-- ══ footer — identical markup on every page ══ -->
 
   <!-- ══ footer — identical markup on every page ══ -->
@@ -376,11 +376,9 @@
     <div class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6">
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         <div class="sm:col-span-2 lg:col-span-1">
-          <a href="../index.html" class="inline-flex items-center gap-2.5" aria-label="OLP home">
-            <span class="grid size-8 place-items-center rounded-lg bg-indigo-600 text-white">
-              <i class="fa-solid fa-graduation-cap text-[15px]" aria-hidden="true"></i>
-            </span>
-            <span class="text-xl font-semibold text-blue-700">OLP</span>
+          <a href="../index.html" class="footer-brand inline-flex items-center gap-2.5" aria-label="Learning home">
+            <img src="../public/flags/logo.svg" alt="Learning" class="footer-logo" />
+            <span class="mt-2 text-xl font-semibold text-blue-700">Learning</span>
           </a>
           <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
             Empowering learners worldwide with accessible, high-quality, and flexible education.
@@ -396,7 +394,7 @@
                   aria-hidden="true"></i></a></li>
           </ul>
         </div>
-        <div>
+        <div class="mt-2">
           <h3 class="footer-title font-semibold">Quick Links</h3>
           <ul class="footer-list mt-5 flex-row flex sm:flex-col gap-5 sm:gap-1.5">
             <li><a href="../index.html" class="footer-link hover:underline">Home</a></li>
@@ -405,7 +403,7 @@
             <li><a href="contact.html" class="footer-link hover:underline">Contact</a></li>
           </ul>
         </div>
-        <div>
+        <div class="mt-2">
           <h3 class="footer-title font-semibold">Contact Details</h3>
           <ul class="footer-list mt-5 flex flex-col gap-1.5">
             <li>
@@ -439,7 +437,7 @@
       </div>
     </div>
   </footer>
-
+  <!-- <script src="../src/components/js/contact.js"></script> -->
   <script type="module" src="../src/main.js"></script>
 </body>
 

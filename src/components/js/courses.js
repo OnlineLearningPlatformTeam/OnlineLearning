@@ -25,7 +25,7 @@ import clip5 from '../../assets/media/preview-card5.mp4';
 import clip6 from '../../assets/media/preview-card6.mp4';
 /* optional full course video (the modal player prefers it; the cards always use
    the short `clip`). Add src/assets/media/trailer-cardN.mp4 to use one.        */
-import trailer1 from '../../assets/media/trailer-card1.mp4';
+import trailer1 from '../../assets/media/preview-card1.mp4';
 
 (() => {
   'use strict';
@@ -158,6 +158,18 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
     },
   ];
 
+  const KM = {
+    webdev: {title:'វគ្គបណ្តុះបណ្តាលអភិវឌ្ឍន៍វេប', category:'អភិវឌ្ឍន៍វេប', level:'អ្នកចាប់ផ្តើម ដល់ មធ្យម', blurb:'ស្ទាត់ជំនាញ HTML5, CSS3, Flexbox, Grid និងការរចនាវេបឆ្លើយតបតាមរយៈគម្រោងជាក់ស្តែង។', outcomes:['សរសេរ HTML5 ដែលមានន័យ និងអាចចូលប្រើបាន','បង្កើត Layout ឆ្លើយតបដោយ Flexbox និង Grid','រចនា Interface ទំនើបដោយ CSS3 និង Tailwind','បង្កើត Portfolio ពីគម្រោងជាក់ស្តែង ១៨','ដាក់គម្រោងដោយ Git, GitHub និង CI preview links']},
+    uiux: {title:'មូលដ្ឋានរចនា UI/UX', category:'រចនា', level:'អ្នកចាប់ផ្តើម ដល់ កម្រិតខ្ពស់', blurb:'បង្កើត Prototype, Wireframe, User Journey និង Design System សម្រាប់វេបសម្រាប់និស្សិត។', outcomes:['រៀបចំ User Journey មុនពេលរចនា','បម្លែងពី Wireframe ទៅ Hi-Fi Figma Prototype','បង្កើត Design System ដែលអាចប្រើឡើងវិញ','ធ្វើ Usability Test និងកែលម្អតាមលទ្ធផល','បង្ហាញ Case Study ដែលអ្នកជ្រើសរើសអាចយល់ច្បាស់']},
+    python: {title:'វគ្គជំនាញ Python Programming', category:'កម្មវិធី', level:'អ្នកចាប់ផ្តើម', blurb:'រៀនមូលដ្ឋាន Python, Data Structures, Scripting និងគោលការណ៍អភិវឌ្ឍន៍ Backend។', outcomes:['សរសេរ Python 3 ដែលស្អាត និងមានរចនាសម្ព័ន្ធ','ដោះស្រាយបញ្ហាដោយ Classes និង Modules','ប្រើ Lists, Dictionaries និង Sets បានល្អ','ប្រើ និងបង្កើត REST APIs','ស្វ័យប្រវត្តិកម្មឯកសារ របាយការណ៍ និងកាលវិភាគ']},
+    graphic: {title:'ការរចនាក្រាហ្វិក និង Vector Art', category:'រចនា', level:'គ្រប់កម្រិត', blurb:'រចនា Logo, Branding Assets, Social Media Graphics និង Digital Illustrations ដែលទាក់ទាញ។', outcomes:['រៀបចំ Typography ឱ្យសមស្របគ្រប់ទំហំ','រចនា Logo និង Identity System','ស្ទាត់ជំនាញ Bezier និង Vector Workflow','រៀបចំឯកសារសម្រាប់បោះពុម្ព និងឌីជីថល','បង្កើត Brand Book ដែលត្រៀមសម្រាប់អតិថិជន']},
+    english: {title:'ភាសាអង់គ្លេស និងការទំនាក់ទំនងវិជ្ជាជីវៈ', category:'ភាសា', level:'មធ្យម', blurb:'ពង្រឹងវាក្យសព្ទការងារ ការសរសេរបច្ចេកទេស ជំនាញសម្ភាសន៍ និងទំនុកចិត្តក្នុងការធ្វើបទបង្ហាញ។', outcomes:['សរសេរឯកសារបច្ចេកទេស និងអាជីវកម្មឱ្យច្បាស់','ធ្វើបទបង្ហាញដោយមានរចនាសម្ព័ន្ធ និងទំនុកចិត្ត','ឆ្លើយសម្ភាសន៍អំពីអាកប្បកិរិយាដោយទំនុកចិត្ត','ដឹកនាំកិច្ចប្រជុំ និងការចរចា','កែលម្អ Grammar, Tone និង Pronunciation']},
+    marketing: {title:'ទីផ្សារឌីជីថល និងយុទ្ធសាស្ត្រកំណើន', category:'ទីផ្សារ', level:'អ្នកចាប់ផ្តើម', blurb:'ស្ទាត់ជំនាញ SEO, Content Marketing, Social Media Analytics និង Conversion Funnels។', outcomes:['រៀបចំ Acquisition Funnel ពេញលេញ','ធ្វើ Technical SEO ដើម្បីបង្កើនចំណាត់ថ្នាក់','រៀបចំ Content ដែលបង្កើតតម្លៃជាបន្តបន្ទាប់','អានទិន្នន័យ GA4 និង Attribution','បង្កើត Growth Plan រយៈពេល ៩០ ថ្ងៃ']}
+  };
+  const courseText = (c, key) => OLP.lang === 'km' ? (KM[c.id]?.[key] || c[key]) : c[key];
+  const courseListText = (c) => OLP.lang === 'km' ? (KM[c.id]?.outcomes || c.outcomes) : c.outcomes;
+  const categoryLabel = (cat) => OLP.t(cat);
+
   const CATEGORIES = ['All Courses', ...new Set(COURSES.map((c) => c.category))];
   const SORTS = {
     popular: { label: 'Most Popular', by: (a, b) => b.reviews - a.reviews },
@@ -203,42 +215,42 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
       <article class="course-card reveal group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
                data-card="${c.id}">
         <div class="relative aspect-video shrink-0 overflow-hidden bg-slate-900">
-          <img src="${c.img}" alt="${esc(c.title)} course artwork" width="1024" height="443"
+          <img src="${c.img}" alt="${esc(courseText(c, 'title'))} course artwork" width="1024" height="443"
                loading="lazy" decoding="async"
                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
           <video class="card-clip absolute inset-0 h-full w-full object-cover" muted loop playsinline preload="none"
                  data-clip="${c.clip}" data-course="${c.id}" poster="${c.img}" aria-hidden="true"></video>
-          <span class="pointer-events-none absolute left-3 top-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-blue-600 shadow-sm">${esc(c.category)}</span>
+          <span class="pointer-events-none absolute left-3 top-3 rounded-full bg-white px-3 py-1 text-xs font-semibold text-blue-600 shadow-sm">${esc(courseText(c, 'category'))}</span>
           <span class="pointer-events-none absolute right-3 top-3 flex items-center gap-1 rounded-full bg-black/55 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm">
-            ${icon('play', 'h-3 w-3')} Preview
+            ${icon('play', 'h-3 w-3')} ${OLP.t('Preview')}
           </span>
           <span class="pointer-events-none absolute bottom-2 right-3 flex items-center gap-1 rounded bg-black/60 px-2 py-1 text-xs text-white">
-            ${icon('clock', 'h-3.5 w-3.5')} ${c.weeks} Weeks
+            ${icon('clock', 'h-3.5 w-3.5')} ${c.weeks} ${OLP.t('Weeks')}
           </span>
-          ${isEnrolled ? `<span class="pointer-events-none absolute bottom-2 left-3 flex items-center gap-1 rounded-full bg-emerald-600 px-2 py-1 text-xs font-semibold text-white">${icon('check', 'h-3.5 w-3.5')} Enrolled</span>` : ''}
+          ${isEnrolled ? `<span class="pointer-events-none absolute bottom-2 left-3 flex items-center gap-1 rounded-full bg-emerald-600 px-2 py-1 text-xs font-semibold text-white">${icon('check', 'h-3.5 w-3.5')} ${OLP.t('Enrolled')}</span>` : ''}
           <span aria-hidden="true" class="watch-pill pointer-events-none absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-1.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
-            <span class="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-blue-700 shadow">${icon('play', 'h-3 w-3')}<span>Watch preview</span></span>
+            <span class="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-blue-700 shadow">${icon('play', 'h-3 w-3')}<span>${OLP.t('Watch preview')}</span></span>
           </span>
         </div>
 
         <div class="flex flex-1 flex-col justify-between p-4">
           <div>
             <div class="mb-2 flex items-center justify-between gap-2">
-              <span class="rounded bg-blue-50 px-2 py-1 text-xs text-slate-500">${esc(c.level)}</span>
+              <span class="rounded bg-blue-50 px-2 py-1 text-xs text-slate-500">${esc(courseText(c, 'level'))}</span>
               <span class="flex items-center gap-1 text-sm font-semibold text-blue-600">
                 ${icon('star', 'h-3.5 w-3.5 text-amber-500')} ${c.rating.toFixed(1)}
                 <span class="font-normal text-slate-500">(${c.reviews.toLocaleString()})</span>
               </span>
             </div>
             <h2 class="mb-1 line-clamp-2 text-lg font-semibold text-slate-800">
-              <a class="card-link" href="#course/${c.id}" data-open="${c.id}">${esc(c.title)}</a>
+              <a class="card-link" href="#course/${c.id}" data-open="${c.id}">${esc(courseText(c, 'title'))}</a>
             </h2>
-            <p class="line-clamp-2 text-sm leading-relaxed text-slate-500">${esc(c.blurb)}</p>
+            <p class="line-clamp-2 text-sm leading-relaxed text-slate-500">${esc(courseText(c, 'blurb'))}</p>
           </div>
 
           <div class="my-4 flex items-center justify-between border-t border-slate-100 pt-2 text-xs text-slate-600">
-            <span class="flex items-center gap-1">${icon('clock', 'h-3.5 w-3.5 text-slate-400')} ${c.hours} Hours total</span>
-            <span class="flex items-center gap-1">${icon('badge', 'h-3.5 w-3.5 text-slate-400')} Certificate</span>
+            <span class="flex items-center gap-1">${icon('clock', 'h-3.5 w-3.5 text-slate-400')} ${c.hours} ${OLP.t('Hours total')}</span>
+            <span class="flex items-center gap-1">${icon('badge', 'h-3.5 w-3.5 text-slate-400')} ${OLP.t(OLP.t('Certificate'))}</span>
           </div>
         </div>
 
@@ -248,7 +260,7 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
         ? 'border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
         : 'bg-blue-600 text-white hover:bg-blue-700'
       }">
-            ${isEnrolled ? `${icon('check', 'h-4 w-4')} Enrolled` : 'Start Learning <span class="text-lg leading-none">&rarr;</span>'}
+            ${isEnrolled ? `${icon('check', 'h-4 w-4')} ${OLP.t('Enrolled')}` : `${OLP.t('Start Learning')} <span class="text-lg leading-none">&rarr;</span>`}
           </button>
         </div>
       </article>`;
@@ -271,7 +283,7 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
         class="shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition ${active
           ? 'bg-blue-700 text-white'
           : 'bg-slate-100 text-slate-700 hover:bg-blue-100 hover:text-blue-700'}">
-        ${esc(cat)}<span class="ml-1.5 text-xs ${active ? 'text-blue-100' : 'text-slate-400'}">${n}</span>
+        ${esc(categoryLabel(cat))}<span class="ml-1.5 text-xs ${active ? 'text-blue-100' : 'text-slate-400'}">${n}</span>
       </button>`;
     }).join('');
   }
@@ -315,8 +327,8 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
     const status = $('#course-status');
     if (status) {
       status.textContent = list.length
-        ? `Showing ${list.length} of ${COURSES.length} courses`
-        : 'No courses match your filters';
+        ? OLP.t('Showing') + ` ${list.length} ${OLP.t('of')} ${COURSES.length} ${OLP.t('courses')}`
+        : OLP.t('No courses match your filters');
     }
     initReveal();
   }
@@ -417,23 +429,23 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
     const isEnrolled = enrolled.has(c.id);
     const meta = [
       ['Instructor', c.instructor.name, c.instructor.role],
-      ['Level', c.level, 'No prerequisites beyond curiosity'],
-      ['Duration', `${c.weeks} weeks`, `${c.hours} hours total`],
-      ['Curriculum', `${c.lessons} lessons`, 'On-demand + weekly live lab'],
+      [OLP.t('Level'), courseText(c, 'level'), OLP.t('No prerequisites beyond curiosity')],
+      [OLP.t('Duration'), `${c.weeks} ${OLP.t('Weeks')}`, `${c.hours} ${OLP.t('Hours total')}`],
+      [OLP.t('Curriculum'), `${c.lessons} ${OLP.t('lessons')}`, OLP.t('On-demand + weekly live lab')],
     ];
     return `
       <div class="relative aspect-video w-full overflow-hidden bg-slate-900">
         <video id="cm-video" class="h-full w-full object-cover" controls playsinline loop preload="metadata"
                poster="${c.img}" src="${c.video || c.clip}"
-               aria-label="${esc(c.title)} preview clip"></video>
+               aria-label="${esc(courseText(c, 'title'))} preview clip"></video>
         <div class="pointer-events-none absolute inset-x-0 top-0 h-2/5 bg-gradient-to-b from-slate-900/80 to-transparent"></div>
         <div class="pointer-events-none absolute inset-x-4 top-3 pr-12 sm:inset-x-6">
           <div class="mb-2 flex flex-wrap items-center gap-2">
-            <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-blue-600">${esc(c.category)}</span>
-            <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur">${esc(c.level)}</span>
-            ${isEnrolled ? `<span class="flex items-center gap-1 rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white">${icon('check', 'h-3.5 w-3.5')} Enrolled</span>` : ''}
+            <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-blue-600">${esc(courseText(c, 'category'))}</span>
+            <span class="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur">${esc(courseText(c, 'level'))}</span>
+            ${isEnrolled ? `<span class="flex items-center gap-1 rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white">${icon('check', 'h-3.5 w-3.5')} ${OLP.t('Enrolled')}</span>` : ''}
           </div>
-          <h2 id="cm-title" class="text-xl font-bold tracking-tight text-white drop-shadow sm:text-2xl">${esc(c.title)}</h2>
+          <h2 id="cm-title" class="text-xl font-bold tracking-tight text-white drop-shadow sm:text-2xl">${esc(courseText(c, 'title'))}</h2>
         </div>
       </div>
 
@@ -441,20 +453,20 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
         <p id="cm-video-note" class="mb-4 hidden rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800" role="status"></p>
         <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-600">
           <span class="flex items-center gap-1.5 font-semibold text-blue-700">${icon('star', 'h-4 w-4 text-amber-500')} ${c.rating.toFixed(1)}
-            <span class="font-normal text-slate-500">(${c.reviews.toLocaleString()} ratings)</span></span>
-          <span class="flex items-center gap-1.5">${icon('users', 'h-4 w-4 text-slate-400')} ${c.students.toLocaleString()} students</span>
-          <span class="flex items-center gap-1.5">${icon('clock', 'h-4 w-4 text-slate-400')} ${c.hours} hours</span>
-          <span class="flex items-center gap-1.5">${icon('badge', 'h-4 w-4 text-slate-400')} Certificate</span>
+            <span class="font-normal text-slate-500">(${c.reviews.toLocaleString()} ${OLP.t('ratings')})</span></span>
+          <span class="flex items-center gap-1.5">${icon('users', 'h-4 w-4 text-slate-400')} ${c.students.toLocaleString()} ${OLP.t('students')}</span>
+          <span class="flex items-center gap-1.5">${icon('clock', 'h-4 w-4 text-slate-400')} ${c.hours} ${OLP.t('hours')}</span>
+          <span class="flex items-center gap-1.5">${icon('badge', 'h-4 w-4 text-slate-400')} ${OLP.t(OLP.t('Certificate'))}</span>
           <button type="button" id="cm-sound" class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700 transition hover:bg-slate-200">
-            ${icon('megaphone', 'h-3.5 w-3.5')}<span id="cm-sound-label">Sound on</span>
+            ${icon('megaphone', 'h-3.5 w-3.5')}<span id="cm-sound-label">${OLP.t('Sound on')}</span>
           </button>
         </div>
 
-        <p class="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">${esc(c.blurb)}</p>
+        <p class="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">${esc(courseText(c, 'blurb'))}</p>
 
-        <h3 class="mt-6 text-base font-semibold text-slate-900">What you'll learn</h3>
+        <h3 class="mt-6 text-base font-semibold text-slate-900">${OLP.t("What you'll learn")}</h3>
         <ul class="mt-3 grid gap-2 sm:grid-cols-2">
-          ${c.outcomes.map((o) => `<li class="flex items-start gap-2 text-sm text-slate-600">${icon('check', 'h-4 w-4 mt-0.5 shrink-0 text-emerald-600')}<span>${esc(o)}</span></li>`).join('')}
+          ${courseListText(c).map((o) => `<li class="flex items-start gap-2 text-sm text-slate-600">${icon('check', 'h-4 w-4 mt-0.5 shrink-0 text-emerald-600')}<span>${esc(o)}</span></li>`).join('')}
         </ul>
 
         <dl class="mt-6 grid gap-3 sm:grid-cols-2">
@@ -468,15 +480,15 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
 
         <div class="mt-6 flex flex-col gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p class="text-sm font-semibold text-slate-900">${isEnrolled ? "You're on the roster" : 'Ready when you are'}</p>
-            <p class="text-xs text-slate-500">${isEnrolled ? 'Saved to your courses on this device.' : 'Free for enrolled OLP students.'}</p>
+            <p class="text-sm font-semibold text-slate-900">${isEnrolled ? OLP.t("You're on the roster") : OLP.t('Ready when you are')}</p>
+            <p class="text-xs text-slate-500">${isEnrolled ? OLP.t('Saved to your courses on this device.') : OLP.t('Free for enrolled OLP students.')}</p>
           </div>
           <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-            ${isEnrolled ? `<button type="button" data-unenrol="${c.id}" class="order-2 text-xs font-medium text-slate-500 underline underline-offset-2 hover:text-slate-800 sm:order-1">Remove from my courses</button>` : ''}
+            ${isEnrolled ? `<button type="button" data-unenrol="${c.id}" class="order-2 text-xs font-medium text-slate-500 underline underline-offset-2 hover:text-slate-800 sm:order-1">${OLP.t('Remove from my courses')}</button>` : ''}
             <button type="button" data-enrol="${c.id}" aria-pressed="${isEnrolled}"
               class="order-1 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition sm:order-2 ${isEnrolled ? 'border border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100' : 'bg-blue-600 text-white hover:bg-blue-700'
       }">
-              ${isEnrolled ? `${icon('check', 'h-4 w-4')} Enrolled` : 'Enrol now'}
+              ${isEnrolled ? `${icon('check', 'h-4 w-4')} ${OLP.t('Enrolled')}` : OLP.t('Enrol now')}
             </button>
           </div>
         </div>
@@ -489,7 +501,7 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
     const video = $('#cm-video');
     const label = $('#cm-sound-label');
     if (!video || !label) return;
-    label.textContent = video.muted ? 'Muted — tap for sound' : 'Sound on';
+    label.textContent = video.muted ? OLP.t('Muted — tap for sound') : OLP.t('Sound on');
   }
 
   function startModalVideo(id) {
@@ -572,7 +584,7 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
     if (!already) {
       enrolled.add(id);
       writeEnrolled(enrolled);
-      toast(`Enrolled in “${c.title}”. It is saved under My courses.`, 'success');
+      toast(OLP.lang === 'km' ? `បានចុះឈ្មោះក្នុង “${courseText(c, 'title')}”។ បានរក្សាទុកក្នុង ${OLP.t('My courses')}។` : `Enrolled in “${c.title}”. It is saved under My courses.`, 'success');
     }
     renderChips();
     render();
@@ -593,7 +605,7 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
     renderChips();
     render();
     if (openId === id) openModal(id, { focus: false });
-    toast(`Removed “${c.title}” from My courses.`, 'warn', 'info');
+    toast(OLP.lang === 'km' ? `បានដក “${courseText(c, 'title')}” ចេញពី ${OLP.t('My courses')}។` : `Removed “${c.title}” from My courses.`, 'warn', 'info');
   }
 
   /* ── wiring ────────────────────────────────────────────────────── */
@@ -603,7 +615,7 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
     const sortEl = $('#course-sort');
     if (sortEl) {
       sortEl.innerHTML = Object.entries(SORTS)
-        .map(([value, { label }]) => `<option value="${value}">${esc(label)}</option>`)
+        .map(([value, { label }]) => `<option value="${value}">${esc(OLP.t(label))}</option>`)
         .join('');
     }
 
@@ -756,6 +768,8 @@ import trailer1 from '../../assets/media/trailer-card1.mp4';
       render();
     });
   }
+
+  window.addEventListener('olp:languagechange', () => { renderChips(); render(); if (openId && courseById(openId)) { modalBody.innerHTML = modalHTML(courseById(openId)); startModalVideo(openId); } });
 
   OLP.onReady(init);
 })();
