@@ -366,4 +366,8 @@ textarea:focus-visible {
 body[data-page="contact"] {
     background: #f8fafc;
 }
-body.theme-dark[data-page="contact"] { background: #0f172a !important; color: #e2e8f0; }
+
+body.theme-dark[data-page="contact"] {
+    background: #0f172a !important;
+    color: #e2e8f0;
+}

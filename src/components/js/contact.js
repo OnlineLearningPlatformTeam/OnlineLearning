@@ -329,11 +329,11 @@ form.addEventListener("submit", async (e) => {
 // =====================
 
 document.addEventListener("DOMContentLoaded", () => {
-    const subject = document.getElementById("subject");
+  const subject = document.getElementById("subject");
 
-    // Reset to default option on page refresh
-    subject.value = "";
-}); 
+  // Reset to default option on page refresh
+  subject.value = "";
+});
 
 // ==========================================
 
