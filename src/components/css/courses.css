@@ -123,6 +123,10 @@
   margin-top: 0;
 }
 
+
+
+
+
 /* ── empty state ─────────────────────────────────────────────────── */
 #course-empty {
   animation: fadeUp .3s cubic-bezier(.2, .8, .2, 1) both;
